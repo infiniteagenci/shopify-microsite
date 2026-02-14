@@ -1,428 +1,694 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Container from '../components/shared/Container.astro';
-import Paragraph from '../components/shared/Paragraph.astro';
-import Button from '../components/shared/Button.astro';
-import Title from '../components/shared/Title.astro';
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import Paragraph from "../components/shared/Paragraph.astro";
+import Button from "../components/shared/Button.astro";
+import Title from "../components/shared/Title.astro";
 
-const seoDescription = "Get a comprehensive Shopify store audit covering growth opportunities, technical performance, and strategic roadmap. London-based experts with 25+ years eCommerce experience.";
+const seoDescription =
+    "Get a comprehensive Shopify store audit covering growth opportunities, technical performance, and strategic roadmap. London-based experts with 25+ years eCommerce experience.";
 ---
 
-<Layout title="Shopify Store Audit & Growth Strategy" description={seoDescription}>
-  <main class="flex flex-col">
-    <!-- Hero Section -->
-    <section class="relative pt-32 lg:pt-40 pb-20 overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-purple-500/5"></div>
-      <Container className="relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-          <span class="inline-block px-4 py-2 rounded-full bg-red-100 text-red-600 text-sm font-semibold mb-6 animate-pulse">
-            Limited Time Offer - 90% Off
-          </span>
-          <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1 mb-6">
-            Unlock Your Shopify Store's <span class="text-gradient-brand">Full Potential</span>
-          </h1>
-          <Paragraph className="text-xl max-w-3xl mx-auto mb-10">
-            Get a detailed growth and technical audit of your store, identify revenue opportunities, and receive a custom strategy roadmap—all in one comprehensive report.
-          </Paragraph>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#book-audit" class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black">
-              Book Your Audit
-            </a>
-            <a href="#whats-included" class="btn-secondary inline-flex justify-center items-center px-8 py-4">
-              What's Included
-            </a>
-          </div>
-          <p class="text-sm text-heading-3 mt-6">No obligation. Detailed report delivered within 5 business days.</p>
-        </div>
-      </Container>
-    </section>
-
-    <!-- What's Included -->
-    <section id="whats-included" class="relative py-20">
-      <Container className="max-w-6xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <Title>What's Included in Your Audit</Title>
-          <Paragraph>
-            A thorough analysis of your entire Shopify store covering growth opportunities, technical health, and strategic recommendations.
-          </Paragraph>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Growth Analysis -->
-          <div class="box card-hover">
-            <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
-              </svg>
+<Layout
+    title="Shopify Store Audit & Growth Strategy"
+    description={seoDescription}
+>
+    <main class="flex flex-col">
+        <!-- Hero Section -->
+        <section class="relative pt-32 lg:pt-40 pb-20 overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-purple-500/5"
+            >
             </div>
-            <h3 class="text-xl font-bold text-heading-1 mb-3">Growth Analysis</h3>
-            <ul class="space-y-2 text-heading-3">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Conversion rate analysis & benchmarks
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Revenue per visitor optimization
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Cart abandonment identification
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Upsell & cross-sell opportunities
-              </li>
-            </ul>
-          </div>
+            <Container className="relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <span
+                        class="inline-block px-4 py-2 rounded-full bg-red-100 text-red-600 text-sm font-semibold mb-6 animate-pulse"
+                    >
+                        Limited Time Offer
+                    </span>
+                    <h1
+                        class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1 mb-6"
+                    >
+                        Unlock Your Shopify Store's <span
+                            class="text-gradient-brand">Full Potential</span
+                        >
+                    </h1>
+                    <Paragraph className="text-xl max-w-3xl mx-auto mb-10">
+                        Get a detailed growth and technical audit of your store,
+                        identify revenue opportunities, and receive a custom
+                        strategy roadmap—all in one comprehensive report.
+                    </Paragraph>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="#book-audit"
+                            class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black"
+                        >
+                            Book Your Audit
+                        </a>
+                        <a
+                            href="#whats-included"
+                            class="btn-secondary inline-flex justify-center items-center px-8 py-4"
+                        >
+                            What's Included
+                        </a>
+                    </div>
+                    <p class="text-sm text-heading-3 mt-6">
+                        No obligation. Detailed report delivered within 5
+                        business days.
+                    </p>
+                </div>
+            </Container>
+        </section>
 
-          <!-- Technical Health -->
-          <div class="box card-hover">
-            <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-heading-1 mb-3">Technical Health</h3>
-            <ul class="space-y-2 text-heading-3">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Page speed performance analysis
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Core Web Vitals assessment
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Mobile experience review
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Theme code optimization check
-              </li>
-            </ul>
-          </div>
+        <!-- What's Included -->
+        <section id="whats-included" class="relative py-20">
+            <Container className="max-w-6xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <Title>What's Included in Your Audit</Title>
+                    <Paragraph>
+                        A thorough analysis of your entire Shopify store
+                        covering growth opportunities, technical health, and
+                        strategic recommendations.
+                    </Paragraph>
+                </div>
 
-          <!-- SEO & Discoverability -->
-          <div class="box card-hover">
-            <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-heading-1 mb-3">SEO & Discoverability</h3>
-            <ul class="space-y-2 text-heading-3">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Organic search visibility score
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                AI search engine readiness (ChatGPT, Perplexity)
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Product page SEO checklist
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Structured data audit
-              </li>
-            </ul>
-          </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Technical Health -->
+                    <div class="box card-hover">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Technical Health
+                        </h3>
+                        <ul class="space-y-2 text-heading-3">
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Page speed performance analysis
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Core Web Vitals assessment
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Mobile experience review
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Theme code optimization check
+                            </li>
+                        </ul>
+                    </div>
 
-          <!-- User Experience -->
-          <div class="box card-hover">
-            <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-heading-1 mb-3">User Experience</h3>
-            <ul class="space-y-2 text-heading-3">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Navigation & site structure review
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Product page conversion elements
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Checkout flow analysis
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Trust signals & social proof audit
-              </li>
-            </ul>
-          </div>
+                    <!-- SEO & Discoverability -->
+                    <div class="box card-hover">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            SEO & Discoverability
+                        </h3>
+                        <ul class="space-y-2 text-heading-3">
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Organic search visibility score
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                AI search engine readiness (ChatGPT, Perplexity)
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Product page SEO checklist
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Structured data audit
+                            </li>
+                        </ul>
+                    </div>
 
-          <!-- Apps & Technology -->
-          <div class="box card-hover">
-            <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-heading-1 mb-3">Apps & Technology</h3>
-            <ul class="space-y-2 text-heading-3">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                App stack efficiency review
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Redundant app identification
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Subscription cost analysis
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Integration health check
-              </li>
-            </ul>
-          </div>
+                    <!-- User Experience -->
+                    <div class="box card-hover">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            User Experience
+                        </h3>
+                        <ul class="space-y-2 text-heading-3">
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Navigation & site structure review
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Product page conversion elements
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Checkout flow analysis
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Trust signals & social proof audit
+                            </li>
+                        </ul>
+                    </div>
 
-          <!-- Security & Compliance -->
-          <div class="box card-hover">
-            <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-heading-1 mb-3">Security & Compliance</h3>
-            <ul class="space-y-2 text-heading-3">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Security vulnerability scan
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                GDPR & cookie compliance review
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Payment security assessment
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Backup & recovery verification
-              </li>
-            </ul>
-          </div>
-        </div>
-      </Container>
-    </section>
+                    <!-- Security & Compliance -->
+                    <div class="box card-hover">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary mb-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Security & Compliance
+                        </h3>
+                        <ul class="space-y-2 text-heading-3">
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Security vulnerability scan
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                GDPR & cookie compliance review
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Payment security assessment
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg
+                                    class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Backup & recovery verification
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </Container>
+        </section>
 
-    <!-- Why Choose Us -->
-    <section class="relative py-20">
-      <Container className="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <Title>Why Get an Audit From Us?</Title>
-        </div>
-        <div class="grid sm:grid-cols-3 gap-8">
-          <div class="text-center">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-heading-1 mb-2">25+ Years Experience</h3>
-            <p class="text-sm text-heading-3">Deep expertise in eCommerce and Shopify development</p>
-          </div>
-          <div class="text-center">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-heading-1 mb-2">Actionable Insights</h3>
-            <p class="text-sm text-heading-3">Real recommendations, not generic advice</p>
-          </div>
-          <div class="text-center">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-heading-1 mb-2">No-Obligation</h3>
-            <p class="text-sm text-heading-3">Detailed report even if you don't hire us</p>
-          </div>
-        </div>
-      </Container>
-    </section>
+        <!-- Why Choose Us -->
+        <section class="relative py-20">
+            <Container className="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Why Get an Audit From Us?</Title>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center text-primary"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            25+ Years Experience
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Deep expertise in eCommerce and Shopify development
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center text-primary"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            Actionable Insights
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Real recommendations, not generic advice
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center text-primary"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            No-Obligation
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Detailed report even if you don't hire us
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
 
-    <!-- Pricing -->
-    <section class="relative py-20 bg-gradient-to-br from-orange-500/5 to-purple-500/5">
-      <Container className="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <Title>Simple, Transparent Pricing</Title>
-          <Paragraph>
-            One comprehensive audit package with everything you need to grow.
-          </Paragraph>
-        </div>
-        <div class="max-w-lg mx-auto">
-          <div class="box relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full blur-2xl"></div>
-            <div class="relative text-center">
-              <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-600 text-sm font-semibold mb-4 animate-pulse">
-                Limited Time Offer
-              </span>
-              <h3 class="text-2xl font-bold text-heading-1 mb-2">Complete Store Audit</h3>
-              <div class="mb-6">
-                  <span class="text-3xl font-bold text-primary">$20</span>
-                <!-- <span class="text-xl font-bold line-through">$199</span> -->
+        <!-- Pricing -->
+        <section
+            class="relative py-20 bg-gradient-to-br from-orange-500/5 to-purple-500/5"
+        >
+            <Container className="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Simple, Transparent Pricing</Title>
+                    <Paragraph>
+                        One comprehensive audit package with everything you need
+                        to grow.
+                    </Paragraph>
+                </div>
+                <div class="max-w-lg mx-auto">
+                    <div class="box relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full blur-2xl"
+                        >
+                        </div>
+                        <div class="relative text-center">
+                            <span
+                                class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-600 text-sm font-semibold mb-4 animate-pulse"
+                            >
+                                Limited Time Offer
+                            </span>
+                            <h3 class="text-2xl font-bold text-heading-1 mb-2">
+                                Complete Store Audit
+                            </h3>
+                            <div class="mb-6">
+                                <span class="text-3xl font-bold text-primary"
+                                    >$25</span
+                                >
+                                <!-- <span class="text-xl font-bold line-through">$199</span> -->
 
-                <span class="text-heading-3 ml-2 block sm:inline text-sm">one-time</span>
-              </div>
-              <p class="text-sm text-red-600 font-medium mb-6">Offer ends soon - 90% off regular price</p>
-              <ul class="space-y-3 text-left mb-8">
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-heading-3">Full technical & growth audit</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-heading-3">Detailed PDF report (15+ pages)</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-heading-3">90-day implementation roadmap</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-heading-3">30-minute video review call</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-heading-3">Delivered within 5 business days</span>
-                </li>
-              </ul>
-              <a id="book-audit" href="https://forms.gle/zZ8zFGudDfMvGUkU8" target="_blank" rel="noopener noreferrer" class="btn-primary glow-button inline-flex justify-center items-center w-full px-6 py-4 text-black">
-                Book Your Audit
-              </a>
-              <p class="text-xs text-heading-3 mt-4">30-day money-back guarantee</p>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
+                                <span
+                                    class="text-heading-3 ml-2 block sm:inline text-sm"
+                                    >one-time</span
+                                >
+                            </div>
+                            <ul class="space-y-3 text-left mb-8">
+                                <li class="flex items-start gap-3">
+                                    <svg
+                                        class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-heading-3"
+                                        >Full technical & growth audit</span
+                                    >
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg
+                                        class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-heading-3"
+                                        >Detailed PDF report (15+ pages)</span
+                                    >
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg
+                                        class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-heading-3"
+                                        >90-day implementation roadmap</span
+                                    >
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg
+                                        class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-heading-3"
+                                        >30-minute video review call</span
+                                    >
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg
+                                        class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-heading-3"
+                                        >Delivered within 5 business days</span
+                                    >
+                                </li>
+                            </ul>
+                            <a
+                                id="book-audit"
+                                href="https://forms.gle/f4VL7etjU2psfh8o9"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-primary glow-button inline-flex justify-center items-center w-full px-6 py-4 text-black"
+                            >
+                                Book Your Audit
+                            </a>
+                            <p class="text-xs text-heading-3 mt-4">
+                                3-day money-back guarantee
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </section>
 
-    <!-- FAQ -->
-    <section class="relative py-20">
-      <Container className="max-w-3xl mx-auto">
-        <div class="text-center mb-12">
-          <Title>Frequently Asked Questions</Title>
-        </div>
-        <div class="space-y-6">
-          <div class="box">
-            <h3 class="font-semibold text-heading-1 mb-2">How long does the audit take?</h3>
-            <p class="text-heading-3">We complete most audits within 3-5 business days. You'll receive your comprehensive report and can then schedule a video call to discuss the findings.</p>
-          </div>
-          <div class="box">
-            <h3 class="font-semibold text-heading-1 mb-2">What Shopify plans do you work with?</h3>
-            <p class="text-heading-3">We work with stores on all plans—from Basic Shopify to Shopify Plus. Our audit methodology adapts to your store's scale and complexity.</p>
-          </div>
-          <div class="box">
-            <h3 class="font-semibold text-heading-1 mb-2">Do I need to implement the recommendations myself?</h3>
-            <p class="text-heading-3">The report includes clear, actionable steps you can follow. If you'd prefer, we can also handle the implementation for you at competitive rates.</p>
-          </div>
-          <div class="box">
-            <h3 class="font-semibold text-heading-1 mb-2">What if I'm on a different platform?</h3>
-            <p class="text-heading-3">This audit is specifically for Shopify stores. If you're on a different platform, get in touch and we can discuss alternative services.</p>
-          </div>
-        </div>
-      </Container>
-    </section>
+        <!-- FAQ -->
+        <section class="relative py-20">
+            <Container className="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Frequently Asked Questions</Title>
+                </div>
+                <div class="space-y-6">
+                    <div class="box">
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            How long does the audit take?
+                        </h3>
+                        <p class="text-heading-3">
+                            We complete most audits within 3-5 business days.
+                            You'll receive your comprehensive report and can
+                            then schedule a video call to discuss the findings.
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            What Shopify plans do you work with?
+                        </h3>
+                        <p class="text-heading-3">
+                            We work with stores on all plans—from Basic Shopify
+                            to Shopify Plus. Our audit methodology adapts to
+                            your store's scale and complexity.
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            Do I need to implement the recommendations myself?
+                        </h3>
+                        <p class="text-heading-3">
+                            The report includes clear, actionable steps you can
+                            follow. If you'd prefer, we can also handle the
+                            implementation for you at competitive rates.
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            What if I'm on a different platform?
+                        </h3>
+                        <p class="text-heading-3">
+                            This audit is specifically for Shopify stores. If
+                            you're on a different platform, get in touch and we
+                            can discuss alternative services.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="relative py-20">
-      <Container className="max-w-4xl mx-auto text-center">
-        <div class="cta-box">
-          <h2 class="text-3xl/tight sm:text-4xl/tight font-bold text-heading-1 mb-4">
-            Ready to Unlock Your Store's Potential?
-          </h2>
-          <Paragraph className="text-lg mb-8">
-            Join 100+ merchants who have transformed their stores with our expert audit and strategy recommendations.
-          </Paragraph>
-          <a href="https://forms.gle/zZ8zFGudDfMvGUkU8" target="_blank" rel="noopener noreferrer" class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black">
-            Get Your Audit for $20
-          </a>
-        </div>
-      </Container>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="relative pb-20">
-      <Container className="max-w-2xl mx-auto text-center">
-        <a href="https://forms.gle/zZ8zFGudDfMvGUkU8" target="_blank" rel="noopener noreferrer" class="btn-primary glow-button inline-flex justify-center items-center px-10 py-5 text-black text-lg">
-          Get Your Audit for $20
-        </a>
-        <p class="text-sm text-heading-3 mt-4">Regular price $199 • Limited time offer</p>
-      </Container>
-    </section>
-  </main>
+        <!-- CTA Section -->
+        <section class="relative py-20">
+            <Container className="max-w-4xl mx-auto text-center">
+                <div class="cta-box">
+                    <h2
+                        class="text-3xl/tight sm:text-4xl/tight font-bold text-heading-1 mb-4"
+                    >
+                        Ready to Unlock Your Store's Potential?
+                    </h2>
+                    <Paragraph className="text-lg mb-8">
+                        Join 100+ merchants who have transformed their stores
+                        with our expert audit and strategy recommendations.
+                    </Paragraph>
+                    <a
+                        href="https://forms.gle/f4VL7etjU2psfh8o9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black"
+                    >
+                        Get Your Audit for $25
+                    </a>
+                </div>
+            </Container>
+        </section>
+    </main>
 </Layout>

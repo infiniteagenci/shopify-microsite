@@ -3,19 +3,20 @@
  * and update sitemap to include markdown URLs
  */
 
-import fs from 'fs';
-import path from 'path';
-import { glob } from 'glob';
+import fs from "fs";
+import path from "path";
+import { glob } from "glob";
 
-const BUILD_DIR = './dist';
-const MARKDOWN_DIR = './dist/md';
-const SITEMAP_FILE = './dist/sitemap-0.xml';
+const BUILD_DIR = "./dist";
+const MARKDOWN_DIR = "./dist/md";
+const SITEMAP_FILE = "./dist/sitemap-0.xml";
 
 const pages = [
   {
-    path: '/',
+    path: "/",
     title: "Infinite.agency - London's Premier Shopify Experts for the AI Era",
-    description: "Infinite.agency - London's premier Shopify experts with 25+ years experience. Custom themes, apps, AI SEO for ChatGPT/Perplexity, and performance-based growth for UK brands.",
+    description:
+      "Infinite.agency - London's premier Shopify experts with 25+ years experience. Custom themes, apps, AI SEO for ChatGPT/Perplexity, and performance-based growth for UK brands.",
     content: `# London's Shopify Experts for the AI Era
 
 With over 25 years of retail eCommerce experience, Infinite.agency helps global brands build custom Shopify stores, develop powerful apps, and optimize for AI search engines like ChatGPT, Perplexity, and Copilot.
@@ -68,12 +69,13 @@ Multi-Vendor Marketplace for Shopify. Transform your Shopify store into a cooper
 
 ## Contact Us
 
-Get a free consultation from our London team. Visit https://infinite.agency to get started.`
+Get a consultation from our London team. Visit https://infinite.agency to get started.`,
   },
   {
-    path: '/services',
+    path: "/services",
     title: "Shopify Services That Drive Results",
-    description: "Comprehensive Shopify services by Infinite.agency, London's premier Shopify agency.",
+    description:
+      "Comprehensive Shopify services by Infinite.agency, London's premier Shopify agency.",
     content: `# Shopify Services That Drive Results
 
 Based in London, Infinite.agency brings over 25 years of retail eCommerce experience to help UK and global brands thrive.
@@ -136,12 +138,13 @@ Get your products discovered on ChatGPT, Copilot, Gemini, and Perplexity.
 
 ## Contact Us
 
-Get a free consultation from our London team. Visit https://infinite.agency to get started.`
+Get a consultation from our London team. Visit https://infinite.agency to get started.`,
   },
   {
-    path: '/apps',
+    path: "/apps",
     title: "Powerful Shopify Apps Built by Merchants, For Merchants",
-    description: "Shopify Apps by Infinite.agency - Vision-Tag, Answer Rank, and CoOp Kit.",
+    description:
+      "Shopify Apps by Infinite.agency - Vision-Tag, Answer Rank, and CoOp Kit.",
     content: `# Powerful Shopify Apps Built by Merchants, For Merchants
 
 Our London-based team builds and supports Shopify apps designed to solve real eCommerce challenges.
@@ -211,12 +214,13 @@ Perfect for producer co-ops, artisan collectives, and boutique vendor groups.
 
 ## Contact Us
 
-Need a custom Shopify app? Our London development team can build custom solutions. Visit https://infinite.agency.`
+Need a custom Shopify app? Our London development team can build custom solutions. Visit https://infinite.agency.`,
   },
   {
-    path: '/audit',
+    path: "/audit",
     title: "Shopify Store Audit & Growth Strategy",
-    description: "Get a comprehensive Shopify store audit covering growth opportunities, technical performance.",
+    description:
+      "Get a comprehensive Shopify store audit covering growth opportunities, technical performance.",
     content: `# Shopify Store Audit & Growth Strategy
 
 Unlock your Shopify store's full potential with a detailed growth and technical audit.
@@ -279,7 +283,7 @@ No obligation. Detailed report delivered within 5 business days.
 - 30-minute video review call
 - Delivered within 5 business days
 
-30-day money-back guarantee. Regular price $199.
+3-day money-back guarantee.
 
 ## FAQ
 
@@ -294,26 +298,29 @@ The report includes clear, actionable steps you can follow.
 
 ## Contact Us
 
-Ready to unlock your store's potential? Join 100+ merchants who have transformed their stores. Book your audit at https://infinite.agency.`
-  }
+Ready to unlock your store's potential? Join 100+ merchants who have transformed their stores. Book your audit at https://infinite.agency.`,
+  },
 ];
 
 async function generateMarkdownFiles() {
-  console.log('Generating markdown files for LLM indexing...');
-  
+  console.log("Generating markdown files for LLM indexing...");
+
   // Create markdown directory
   if (!fs.existsSync(MARKDOWN_DIR)) {
     fs.mkdirSync(MARKDOWN_DIR, { recursive: true });
   }
-  
+
   // Generate markdown for each page
   for (const page of pages) {
-    const mdPath = path.join(MARKDOWN_DIR, page.path === '/' ? 'index.md' : `${page.path.slice(1)}.md`);
+    const mdPath = path.join(
+      MARKDOWN_DIR,
+      page.path === "/" ? "index.md" : `${page.path.slice(1)}.md`,
+    );
     const dir = path.dirname(mdPath);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
-    
+
     const mdContent = `---
 title: "${page.title}"
 description: "${page.description}"
@@ -324,31 +331,31 @@ ${page.content}
 ---
 *Source: https://infinite.agency${page.path}*
 `;
-    
+
     fs.writeFileSync(mdPath, mdContent);
     console.log(`Generated: ${mdPath}`);
   }
-  
+
   // Copy blog posts from content collections
-  const blogFiles = glob.sync('src/content/blog/*.mdx');
+  const blogFiles = glob.sync("src/content/blog/*.mdx");
   for (const file of blogFiles) {
-    const filename = path.basename(file).replace('.mdx', '.md');
-    const destPath = path.join(MARKDOWN_DIR, 'blog', filename);
+    const filename = path.basename(file).replace(".mdx", ".md");
+    const destPath = path.join(MARKDOWN_DIR, "blog", filename);
     const destDir = path.dirname(destPath);
     if (!fs.existsSync(destDir)) {
       fs.mkdirSync(destDir, { recursive: true });
     }
-    
-    let content = fs.readFileSync(file, 'utf-8');
-    
+
+    let content = fs.readFileSync(file, "utf-8");
+
     // Convert frontmatter from YAML to proper format
     content = content.replace(/^---\n([\s\S]*?)\n---/, (match, frontmatter) => {
-      const lines = frontmatter.split('\n').filter(l => l.trim());
-      let newFrontmatter = '---\n';
+      const lines = frontmatter.split("\n").filter((l) => l.trim());
+      let newFrontmatter = "---\n";
       for (const line of lines) {
-        if (line.includes(':')) {
-          const [key, ...valueParts] = line.split(':');
-          const value = valueParts.join(':').trim();
+        if (line.includes(":")) {
+          const [key, ...valueParts] = line.split(":");
+          const value = valueParts.join(":").trim();
           if (value) {
             newFrontmatter += `${key.trim()}: "${value}"\n`;
           } else {
@@ -358,96 +365,96 @@ ${page.content}
           newFrontmatter += `${line}\n`;
         }
       }
-      newFrontmatter += '---\n';
+      newFrontmatter += "---\n";
       return newFrontmatter;
     });
-    
+
     // Remove any HTML tags
-    content = content.replace(/<[^>]*>/g, '');
-    
+    content = content.replace(/<[^>]*>/g, "");
+
     fs.writeFileSync(destPath, content);
     console.log(`Generated: ${destPath}`);
   }
-  
+
   // Create blog index
   let blogIndex = `---\ntitle: "Blog - Infinite.agency Insights"\ndescription: "Expert tips on Shopify, AI SEO, and eCommerce growth"\n---\n\n# Blog - Infinite.agency Insights\n\nExpert tips on Shopify, AI SEO, and eCommerce growth from our London team.\n\n## Latest Posts\n\n`;
-  
+
   const sortedBlogFiles = blogFiles.sort((a, b) => {
-    const aContent = fs.readFileSync(a, 'utf-8');
-    const bContent = fs.readFileSync(b, 'utf-8');
-    const aDate = aContent.match(/date:\s*["']?(\d{4}-\d{2}-\d{2})/)?.[1] || '';
-    const bDate = bContent.match(/date:\s*["']?(\d{4}-\d{2}-\d{2})/)?.[1] || '';
+    const aContent = fs.readFileSync(a, "utf-8");
+    const bContent = fs.readFileSync(b, "utf-8");
+    const aDate = aContent.match(/date:\s*["']?(\d{4}-\d{2}-\d{2})/)?.[1] || "";
+    const bDate = bContent.match(/date:\s*["']?(\d{4}-\d{2}-\d{2})/)?.[1] || "";
     return bDate.localeCompare(aDate);
   });
-  
+
   for (const file of sortedBlogFiles) {
-    const filename = path.basename(file).replace('.mdx', '.md');
-    const content = fs.readFileSync(file, 'utf-8');
+    const filename = path.basename(file).replace(".mdx", ".md");
+    const content = fs.readFileSync(file, "utf-8");
     const titleMatch = content.match(/title:\s*["']?([^"\n]+)/);
     const title = titleMatch ? titleMatch[1] : filename;
     const descMatch = content.match(/description:\s*["']?([^"\n]+)/);
-    const description = descMatch ? descMatch[1] : '';
+    const description = descMatch ? descMatch[1] : "";
     const dateMatch = content.match(/date:\s*["']?(\d{4}-\d{2}-\d{2})/);
-    const date = dateMatch ? dateMatch[1] : '';
+    const date = dateMatch ? dateMatch[1] : "";
     const catMatch = content.match(/category:\s*["']?([^"\n]+)/);
-    const category = catMatch ? catMatch[1] : '';
-    
+    const category = catMatch ? catMatch[1] : "";
+
     blogIndex += `### [${title}](blog/${filename})\n`;
     if (category) blogIndex += `- **Category:** ${category}\n`;
     if (date) blogIndex += `- **Date:** ${date}\n`;
     if (description) blogIndex += `- ${description}\n\n`;
   }
-  
+
   blogIndex += `\n---\n*Source: https://infinite.agency/blog*\n`;
-  
-  fs.writeFileSync(path.join(MARKDOWN_DIR, 'blog', 'index.md'), blogIndex);
-  console.log('Generated: blog/index.md');
-  
-  console.log('\nMarkdown files generated successfully!');
+
+  fs.writeFileSync(path.join(MARKDOWN_DIR, "blog", "index.md"), blogIndex);
+  console.log("Generated: blog/index.md");
+
+  console.log("\nMarkdown files generated successfully!");
 }
 
 async function updateSitemap() {
-  console.log('\nUpdating sitemap with markdown URLs...');
-  
+  console.log("\nUpdating sitemap with markdown URLs...");
+
   if (!fs.existsSync(SITEMAP_FILE)) {
-    console.log('Sitemap not found, skipping update');
+    console.log("Sitemap not found, skipping update");
     return;
   }
-  
-  let sitemap = fs.readFileSync(SITEMAP_FILE, 'utf-8');
-  
+
+  let sitemap = fs.readFileSync(SITEMAP_FILE, "utf-8");
+
   // Add markdown URLs to sitemap
-  const baseUrl = 'https://infinite.agency';
+  const baseUrl = "https://infinite.agency";
   const mdUrls = [
-    '/md/',
-    '/md/index.md',
-    '/md/services.md',
-    '/md/apps.md',
-    '/md/audit.md',
-    '/md/blog/',
-    '/md/blog/index.md'
+    "/md/",
+    "/md/index.md",
+    "/md/services.md",
+    "/md/apps.md",
+    "/md/audit.md",
+    "/md/blog/",
+    "/md/blog/index.md",
   ];
-  
+
   // Get blog files
-  const blogFiles = glob.sync('src/content/blog/*.mdx');
+  const blogFiles = glob.sync("src/content/blog/*.mdx");
   for (const file of blogFiles) {
-    const filename = path.basename(file).replace('.mdx', '.md');
+    const filename = path.basename(file).replace(".mdx", ".md");
     mdUrls.push(`/md/blog/${filename}`);
   }
-  
+
   // Add URL entries for markdown files
   for (const url of mdUrls) {
     const fullUrl = `${baseUrl}${url}`;
     if (!sitemap.includes(fullUrl)) {
       const urlEntry = `  <url>\n    <loc>${fullUrl}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
-      
+
       // Insert before closing urlset tag
-      sitemap = sitemap.replace('</urlset>', `${urlEntry}\n  </urlset>`);
+      sitemap = sitemap.replace("</urlset>", `${urlEntry}\n  </urlset>`);
     }
   }
-  
+
   fs.writeFileSync(SITEMAP_FILE, sitemap);
-  console.log('Sitemap updated with markdown URLs');
+  console.log("Sitemap updated with markdown URLs");
 }
 
 async function main() {
