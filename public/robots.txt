@@ -1,0 +1,6 @@
+# Allow all search engines and AI answer engines
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://infinite.agency/sitemap.xml

@@ -1,0 +1,177 @@
+---
+import "../styles/global.css"
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/shared/Container.astro';
+import Paragraph from '../components/shared/Paragraph.astro';
+import Button from '../components/shared/Button.astro';
+import { getCollection } from 'astro:content';
+
+const seoDescription = "Shopify blog by Infinite.agency - Expert insights on AI SEO, custom themes, app development, and eCommerce growth strategies from London's Shopify experts.";
+
+// Get all blog posts
+const allPosts = await getCollection('blog');
+
+// Sort by date (newest first)
+const blogPosts = allPosts
+  .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+
+// Get unique categories
+const categories = [...new Set(blogPosts.map(post => post.data.category))];
+---
+
+<Layout title="Blog" description={seoDescription}>
+  <main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative pt-32 lg:pt-36 pb-20">
+      <Container className={"flex flex-col items-center text-center max-w-4xl mx-auto"}>
+        <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight xl:text-7xl/tight font-bold text-heading-1 mb-8">
+          Ecommerce Insights & <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] via-[#EC4899] to-[#F472B6]">Shopify Expertise</span>
+        </h1>
+        <Paragraph className="text-xl max-w-3xl">
+          Expert insights from our London-based team on Shopify development, AI search engine optimization, and strategies to grow your online store in the evolving commerce landscape.
+        </Paragraph>
+      </Container>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="relative py-8">
+      <Container className="max-w-4xl mx-auto">
+        <div class="flex flex-wrap justify-center gap-3">
+          <button class="px-5 py-2 rounded-full bg-primary text-white font-medium transition-all">
+            All Posts
+          </button>
+          {categories.map(category => (
+            <button class="px-5 py-2 rounded-full bg-box-bg border border-box-border text-heading-3 hover:border-primary hover:text-primary transition-all font-medium">
+              {category}
+            </button>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="relative py-8">
+      <Container className="max-w-6xl mx-auto">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="group flex flex-col h-full rounded-3xl bg-box-bg border border-box-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-box-shadow">
+              <!-- Image -->
+              <div class="relative aspect-video overflow-hidden">
+                <img
+                  src={post.data.image}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <span class="absolute top-4 left-4 px-3 py-1 text-xs font-semibold bg-primary/90 backdrop-blur-sm text-white rounded-full">
+                  {post.data.category}
+                </span>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1 p-6 flex flex-col">
+                <div class="flex items-center gap-3 text-sm text-heading-3 mb-3">
+                  <time datetime={post.data.date}>
+                    {new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  </time>
+                  <span class="w-1 h-1 rounded-full bg-heading-3"></span>
+                  <span>{post.data.readTime}</span>
+                </div>
+
+                <h2 class="text-xl/tight font-bold text-heading-1 mb-3 group-hover:text-primary transition-colors">
+                  {post.data.title}
+                </h2>
+
+                <p class="text-heading-3 mb-4 line-clamp-3 flex-1">
+                  {post.data.description}
+                </p>
+
+                <span class="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                  Read More
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="relative py-20 bg-gradient-to-br from-orange-500/5 to-pink-500/5">
+      <Container className="max-w-3xl mx-auto text-center">
+        <div class="p-8 md:p-12 rounded-3xl">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-6 text-primary">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18c0 .621.504 1.125 1.125 1.125h2.25" />
+          </svg>
+          <h2 class="text-3xl/tight sm:text-4xl/tight font-bold text-heading-1 mb-4">
+            Stay Updated with Shopify Insights
+          </h2>
+          <Paragraph className="text-lg mb-8">
+            Get expert tips, industry news, and exclusive content delivered to your inbox. Join thousands of merchants growing their stores with our strategies.
+          </Paragraph>
+          <form action="#" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="flex-1 px-6 py-4 rounded-full border border-box-border bg-body text-heading-1 focus:outline-none focus:border-primary"
+              required
+            />
+            <Button variant="primary" className="px-8 py-4 text-white whitespace-nowrap">
+              Subscribe
+            </Button>
+          </form>
+          <p class="text-sm text-heading-3 mt-4">
+            No spam, unsubscribe anytime. We respect your privacy.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Featured Topics -->
+    <section class="relative py-20">
+      <Container className="max-w-5xl mx-auto">
+        <h2 class="text-2xl/tight sm:text-3xl/tight font-bold text-heading-1 text-center mb-12">
+          Explore by Topic
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { name: "AI & SEO", count: "12 posts", icon: "M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" },
+            { name: "Development", count: "8 posts", icon: "M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" },
+            { name: "Ecommerce", count: "15 posts", icon: "M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" },
+            { name: "Growth", count: "10 posts", icon: "M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" }
+          ].map((topic) => (
+            <a
+              href="#"
+              class="group p-6 rounded-2xl bg-box-bg border border-box-border hover:border-primary/50 transition-all hover:shadow-lg"
+            >
+              <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={topic.icon} />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-heading-1 mb-1 group-hover:text-primary transition-colors">
+                {topic.name}
+              </h3>
+              <p class="text-sm text-heading-3">
+                {topic.count}
+              </p>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

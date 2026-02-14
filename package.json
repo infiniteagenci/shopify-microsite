@@ -1,0 +1,24 @@
+{
+  "name": "agencex-astro",
+  "type": "module",
+  "version": "0.0.5",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && node scripts/generate-markdown.js",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "astro build && wrangler pages deploy",
+    "generate-markdown": "node scripts/generate-markdown.js"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.6.0",
+    "@tailwindcss/vite": "^4.1.5",
+    "astro": "^5.7.12",
+    "tailwindcss": "^4.1.5"
+  },
+  "devDependencies": {
+    "glob": "^13.0.0"
+  }
+}

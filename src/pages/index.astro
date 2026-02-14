@@ -1,0 +1,433 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Services from "../components/sections/Services.astro";
+import AboutUs from "../components/sections/AboutUs.astro";
+import Features from "../components/sections/Features.astro";
+import CTA from "../components/sections/CTA.astro";
+import Brands from "../components/sections/Brands.astro";
+import Container from "../components/shared/Container.astro";
+import Title from "../components/shared/Title.astro";
+import Paragraph from "../components/shared/Paragraph.astro";
+import Button from "../components/shared/Button.astro";
+import { services, shopifyApps, aboutStats } from "../utils/data.ts";
+import { getCollection } from 'astro:content';
+
+// Get latest blog posts for the homepage
+const allPosts = await getCollection('blog');
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+  .slice(0, 3);
+
+const seoDescription =
+    "Infinite.agency - London's premier Shopify experts with 25+ years experience. Custom themes, apps, AI SEO for ChatGPT/Perplexity, and performance-based growth for UK brands.";
+---
+
+<Layout
+    title="Shopify Experts | Custom Themes, Apps & AI SEO"
+    description={seoDescription}
+>
+    <main class="flex flex-col section-gap-y overflow-hidden">
+        <!-- Hero Section -->
+        <section class="relative hero-padding-top pb-16">
+            <Container className="flex flex-col lg:flex-row gap-10 lg:gap-12">
+                <div class="absolute w-full lg:w-1/2 inset-y-0 lg:right-0">
+                    <span
+                        class="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-pink-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden"
+                    ></span>
+                    <span
+                        class="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-orange-500 blur-xl opacity-80"
+                    ></span>
+                </div>
+                <span
+                    class="w-4/12 lg:w-2/12 aspect-square gradient-brand absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"
+                ></span>
+                <div
+                    class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2"
+                >
+                    <h1 class="text-hero font-bold text-heading-1">
+                        London's <span class="text-gradient-brand">Shopify Experts</span> for the AI Era
+                    </h1>
+                    <Paragraph className="mt-8">
+                        With over 25 years of retail eCommerce experience,
+                        Infinite.agency helps global brands build custom Shopify
+                        stores, develop powerful apps, and optimize for AI
+                        search engines like ChatGPT, Perplexity, and Copilot.
+                    </Paragraph>
+                    <div class="mt-10 w-full flex max-w-md mx-auto lg:mx-0">
+                        <div class="flex sm:flex-row flex-col gap-5 w-full">
+                            <a
+                                href="/services"
+                                class="btn-primary glow-button text-black flex justify-center w-full sm:w-max px-8 py-4"
+                            >
+                                Explore Services
+                            </a>
+                            <a
+                                href="/apps"
+                                class="btn-secondary flex justify-center w-full sm:w-max px-8 py-4"
+                            >
+                                Our Apps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl"
+                >
+                    <img
+                        src="/images/image1.webp"
+                        alt="Infinite.agency Shopify development team in London"
+                        width="2350"
+                        height="2359"
+                        class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96"
+                    />
+                </div>
+            </Container>
+
+            <!-- Stats Section -->
+            <Container className="pt-12">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                    {aboutStats.map((stat) => (
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold text-primary">
+                                {stat.value}
+                            </div>
+                            <div class="text-sm md:text-base text-heading-3 mt-1">
+                                {stat.label}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+
+        <!-- Services Preview -->
+        <section id="services" class="relative section-padding-y">
+            <Container className="space-y-10 md:space-y-12">
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <Title>Expert Shopify Services</Title>
+                    <Paragraph>
+                        From vibe-coded site audits to custom themes and
+                        AI-optimized SEO, our London team delivers end-to-end
+                        solutions for modern eCommerce.
+                    </Paragraph>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    {services.slice(0, 3).map((service) => (
+                        <div class="box card-hover">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+                                <div set:html={service.icon} class="icon-lg" />
+                            </div>
+                            <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                                {service.title}
+                            </h3>
+                            <p class="text-heading-3 text-sm">
+                                {service.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+                <div class="text-center">
+                    <a
+                        href="/services"
+                        class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+                    >
+                        View All Services
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            class="icon-sm"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                            ></path>
+                        </svg>
+                    </a>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Shopify Apps -->
+        <section id="apps" class="relative section-padding-y gradient-subtle-orange">
+            <Container className="space-y-10 md:space-y-12">
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <Title>Powerful Shopify Apps</Title>
+                    <Paragraph>
+                        Our London development team builds apps that solve real
+                        merchant problems. From AI accessibility to multi-vendor
+                        marketplaces.
+                    </Paragraph>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    {shopifyApps.map((app) => (
+                        <div class="box card-hover">
+                            <div class="service-icon mb-4">
+                                <div set:html={app.icon} class="icon-2xl" />
+                            </div>
+                            <span class="badge mb-3 inline-block text-xs">
+                                {app.category}
+                            </span>
+                            <h3 class="text-xl font-bold text-heading-1 mb-2">
+                                {app.name}
+                            </h3>
+                            <p class="text-sm text-primary font-medium mb-3">
+                                {app.tagline}
+                            </p>
+                            <p class="text-heading-3 text-sm mb-4">
+                                {app.description}
+                            </p>
+                            <a
+                                href="/apps"
+                                class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all"
+                            >
+                                Learn More
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="icon-sm"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="relative section-padding-y">
+            <Container className="max-w-4xl mx-auto text-center">
+                <Title>Why Choose Infinite.agency?</Title>
+                <Paragraph className="text-lg">
+                    Based in London, we bring 25+ years of retail eCommerce
+                    expertise to help UK and global brands thrive. We don't just
+                    build stores - we build businesses that succeed in the
+                    AI-driven commerce landscape.
+                </Paragraph>
+                <div class="grid-benefits mt-12">
+                    <div class="box">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center" style="background-color: rgb(var(--color-primary) / 0.1); color: var(--color-primary)">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            Proven Results
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            100+ stores launched.
+                        </p>
+                    </div>
+                    <div class="box">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center" style="background-color: rgb(var(--color-primary) / 0.1); color: var(--color-primary)">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            UK-Based Team
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            London experts who understand UK & global markets
+                        </p>
+                    </div>
+                    <div class="box">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center" style="background-color: rgb(var(--color-primary) / 0.1); color: var(--color-primary)">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-8 h-8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            AI-First Approach
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Optimize for ChatGPT, Perplexity, and AI search engines
+                        </p>
+                    </div>
+                </div>
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            Proven Results
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            100+ stores launched.
+                        </p>
+                    </div>
+                    <div class="box">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center text-primary" style="background-color: rgb(var(--color-primary) / 0.1)">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="icon-lg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            UK-Based Team
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            London experts who understand UK & global markets
+                        </p>
+                    </div>
+                    <div class="box">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center text-primary" style="background-color: rgb(var(--color-primary) / 0.1)">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="icon-lg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-heading-1 mb-2">
+                            AI-First Approach
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Optimize for ChatGPT, Perplexity, and AI search
+                            engines
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="relative section-padding-y">
+            <Container className="max-w-4xl mx-auto text-center">
+                <div class="cta-box">
+                    <h2 class="text-section-title font-bold text-heading-1 mb-6">
+                        Ready to Grow Your Shopify Store?
+                    </h2>
+                    <Paragraph className="text-lg mb-8">
+                        Get a free consultation from our London team. We'll help
+                        you identify opportunities and create a roadmap for
+                        success.
+                    </Paragraph>
+                    <a
+                        href="https://forms.gle/zZ8zFGudDfMvGUkU8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary glow-button gradient-button inline-flex justify-center items-center px-8 py-4 text-black"
+                    >
+                        Get Started
+                    </a>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Latest from Blog -->
+        <section id="blog" class="relative section-padding-y">
+            <Container className="space-y-10">
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <Title>Latest Insights</Title>
+                    <Paragraph>Expert tips on Shopify, AI SEO, and eCommerce growth from our London team.</Paragraph>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    {latestPosts.map((post) => (
+                        <a href={`/blog/${post.slug}`} class="group box card-hover flex flex-col h-full">
+                            <div class="relative aspect-video rounded-xl mb-4 overflow-hidden">
+                                <img
+                                    src={post.data.image}
+                                    alt={post.data.title}
+                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                                <span class="absolute top-3 left-3 px-3 py-1 text-xs font-semibold bg-primary/90 backdrop-blur-sm text-white rounded-full">
+                                    {post.data.category}
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-heading-1 mb-2 group-hover:text-primary transition-colors">
+                                {post.data.title}
+                            </h3>
+                            <p class="text-sm text-heading-3 flex-1">
+                                {post.data.description}
+                            </p>
+                        </a>
+                    ))}
+                </div>
+                <div class="text-center">
+                    <a
+                        href="/blog"
+                        class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+                    >
+                        View All Articles
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            class="icon-sm"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                            ></path>
+                        </svg>
+                    </a>
+                </div>
+            </Container>
+        </section>
+    </main>
+</Layout>

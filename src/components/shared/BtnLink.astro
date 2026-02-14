@@ -1,0 +1,14 @@
+---
+export interface Props{
+    href:string,
+    text:string,
+    className?:string,
+    variant:"primary"|"secondary"
+}
+
+const {href, text,className, variant} = Astro.props
+---
+
+<a href={href} class={`btn-${variant} glow-button ${className || ""}`}>
+    {text}
+</a>

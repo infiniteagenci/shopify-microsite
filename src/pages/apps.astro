@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/shared/Container.astro';
+import Paragraph from '../components/shared/Paragraph.astro';
+import Button from '../components/shared/Button.astro';
+import { shopifyApps } from '../utils/data.ts';
+
+const seoDescription = "Shopify Apps by Infinite.agency - Vision-Tag for AI alt text generation, Answer Rank for AI search engine optimization, and CoOp Kit for multi-vendor marketplaces.";
+---
+
+<Layout title="Shopify Apps" description={seoDescription}>
+  <main class="flex flex-col section-gap-y overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative hero-padding-top hero-padding-bottom">
+      <Container className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <h1 class="text-hero font-bold text-heading-1 mb-8">
+          Powerful <span class="text-gradient-purple">Shopify Apps</span> Built by Merchants, For Merchants
+        </h1>
+        <Paragraph className="text-xl max-w-3xl">
+          Our London-based team builds and supports a growing suite of Shopify apps designed to solve real eCommerce challenges. From AI-powered accessibility to multi-vendor marketplaces, we've got you covered.
+        </Paragraph>
+      </Container>
+    </section>
+
+    <!-- Apps Grid -->
+    <section class="relative section-padding-y">
+      <Container className="space-y-24">
+        {shopifyApps.map((app, index) => (
+          <div id={app.slug} class={`scroll-mt-32 flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-16 items-start`}>
+            <!-- App Icon & Info -->
+            <div class="flex-1 space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="app-icon">
+                  <div set:html={app.icon} class="icon-4xl" />
+                </div>
+                <div>
+                  <span class="badge mb-2 inline-block">
+                    {app.category}
+                  </span>
+                  <h2 class="text-3xl font-bold text-heading-1">
+                    {app.name}
+                  </h2>
+                </div>
+              </div>
+
+              <p class="text-xl font-semibold text-primary">
+                {app.tagline}
+              </p>
+
+              <p class="text-lg text-heading-3 leading-relaxed">
+                {app.description}
+              </p>
+
+              <!-- Key Benefits -->
+              <div class="box p-6">
+                <h3 class="font-semibold text-heading-1 mb-2">Key Benefits:</h3>
+                <p class="text-heading-3">
+                  {app.benefits}
+                </p>
+              </div>
+
+              <!-- Features List -->
+              <div class="space-y-3">
+                <h3 class="font-semibold text-heading-1">Features:</h3>
+                <ul class="feature-list">
+                  {app.features.map((feature) => (
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- CTA Buttons -->
+              <div class="flex flex-wrap gap-4">
+                <a
+                  href="https://forms.gle/zZ8zFGudDfMvGUkU8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary inline-flex justify-center items-center px-6 py-3 text-black"
+                >
+                  Request Demo
+                </a>
+              </div>
+            </div>
+
+            <!-- App Preview/Image Placeholder -->
+            <div class="flex-1 w-full">
+              <div class="preview-box">
+                <div class="text-center p-8">
+                  <div class="app-icon-preview mb-4">
+                    <div set:html={app.icon} class="icon-5xl" />
+                  </div>
+                  <p class="text-heading-3 font-medium">{app.name} Preview</p>
+                  <p class="text-sm text-heading-3 mt-2">App Screenshot</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Container>
+    </section>
+
+    <!-- Why Choose Our Apps -->
+    <section class="relative section-padding-y" style="background-color: rgb(var(--color-primary) / 0.05)">
+      <Container className="max-w-4xl mx-auto text-center">
+        <h2 class="text-section-title font-bold text-heading-1 mb-6">
+          Why Choose Our Apps?
+        </h2>
+        <Paragraph className="text-lg mb-12">
+          Built by a London-based Shopify agency with 25+ years of eCommerce experience, our apps are designed to solve real merchant problems with enterprise-grade quality at affordable prices.
+        </Paragraph>
+
+        <div class="grid-benefits">
+          <div class="box">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center text-primary" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-xl">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-heading-1 mb-2">Merchant-Tested</h3>
+            <p class="text-sm text-heading-3">Built and tested on real stores serving thousands of customers daily.</p>
+          </div>
+
+          <div class="box">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center text-primary" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-xl">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-heading-1 mb-2">Expert Support</h3>
+            <p class="text-sm text-heading-3">Direct support from our London development team, not chatbots.</p>
+          </div>
+
+          <div class="box">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center text-primary" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-xl">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-heading-1 mb-2">Regular Updates</h3>
+            <p class="text-sm text-heading-3">Continuous improvements and new features based on merchant feedback.</p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="relative section-padding-y">
+      <Container className="max-w-4xl mx-auto text-center">
+        <div class="cta-box">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">
+            Need a Custom Shopify App?
+          </h2>
+          <Paragraph className="text-lg mb-8">
+            Don't see an app that fits your needs? Our London development team can build custom solutions tailored to your unique business requirements.
+          </Paragraph>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://forms.gle/zZ8zFGudDfMvGUkU8"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black"
+            >
+              Request Custom App
+            </a>
+            <a
+              href="https://forms.gle/zZ8zFGudDfMvGUkU8"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary inline-flex justify-center items-center px-8 py-4"
+            >
+              Contact Sales
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>

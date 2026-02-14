@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/shared/Container.astro';
+import Paragraph from '../components/shared/Paragraph.astro';
+import Button from '../components/shared/Button.astro';
+import { services } from '../utils/data.ts';
+
+const seoDescription = "Comprehensive Shopify services by Infinite.agency, London's premier Shopify agency. From vibe-coded site audits to custom themes, app development, and AI-optimized SEO for ChatGPT and Perplexity discovery.";
+---
+
+<Layout title="Services" description={seoDescription}>
+  <main class="flex flex-col section-gap-y overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative hero-padding-top hero-padding-bottom">
+      <Container className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <h1 class="text-hero font-bold text-heading-1 mb-8">
+          Shopify Services That <span class="text-gradient-purple">Drive Results</span>
+        </h1>
+        <Paragraph className="text-xl max-w-3xl">
+          Based in London, Infinite.agency brings over 25 years of retail eCommerce experience to help UK and global brands thrive in the AI-driven commerce landscape. We provide end-to-end Shopify solutions tailored to your business needs.
+        </Paragraph>
+      </Container>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="relative section-padding-y">
+      <Container className="space-y-16">
+        {services.map((service, index) => (
+          <div id={service.slug} class={`scroll-mt-32 flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-start`}>
+            <!-- Icon/Visual -->
+            <div class="service-icon">
+              <div set:html={service.icon} class="icon-xl" />
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1 space-y-4">
+              <h2 class="text-section-title font-bold text-heading-1">
+                {service.title}
+              </h2>
+              <p class="text-lg text-heading-3 leading-relaxed">
+                {service.description}
+              </p>
+
+              <!-- Service-specific details -->
+              {service.slug === 'shopify-audit-fix' && (
+                <div class="box mt-6 space-y-4">
+                  <h3 class="font-semibold text-heading-1">Our Audit Covers:</h3>
+                  <ul class="feature-list text-heading-3">
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Security vulnerability assessment</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Performance optimization analysis</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Code quality review</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Payment flow verification</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Shopify app compatibility check</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Mobile responsiveness testing</span>
+                    </li>
+                  </ul>
+                  <a href="/audit" class="btn-primary glow-button inline-flex justify-center items-center px-6 py-3 text-black mt-4">
+                    Shopify Store Audit
+                  </a>
+                </div>
+              )}
+
+              {service.slug === 'custom-shopify-themes' && (
+                <div class="box mt-6 space-y-4">
+                  <h3 class="font-semibold text-heading-1">Our Theme Expertise:</h3>
+                  <ul class="feature-list text-heading-3">
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Headless Shopify with Hydrogen</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Custom Liquid theme development</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Conversion rate optimization</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Performance optimization (Core Web Vitals)</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Accessibility compliance (WCAG 2.1)</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>SEO-friendly architecture</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+
+              {service.slug === 'shopify-app-development' && (
+                <div class="box mt-6 space-y-4">
+                  <h3 class="font-semibold text-heading-1">Custom App Solutions:</h3>
+                  <ul class="feature-list text-heading-3">
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>ERP & inventory integrations</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Custom checkout extensions</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Customer portal development</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Admin dashboard customizations</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Third-party API integrations</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Workflow automation tools</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+
+              {service.slug === 'ai-optimized-seo' && (
+                <div class="box mt-6 space-y-4">
+                  <h3 class="font-semibold text-heading-1">AI Search Engine Coverage:</h3>
+                  <ul class="feature-list text-heading-3">
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>ChatGPT optimization</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Microsoft Copilot optimization</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Google Gemini optimization</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Perplexity AI optimization</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Structured data markup (Schema.org)</span>
+                    </li>
+                    <li class="feature-item">
+                      <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>AI ranking monitoring & reports</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </Container>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="relative section-padding-y">
+      <Container className="max-w-4xl mx-auto text-center">
+        <div class="cta-box">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">
+            Ready to Transform Your Shopify Store?
+          </h2>
+          <Paragraph className="text-lg mb-8">
+            Get a free consultation and discover how we can help your business grow with custom solutions tailored to your needs.
+          </Paragraph>
+          <a
+            href="https://forms.gle/zZ8zFGudDfMvGUkU8"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black"
+          >
+            Get Started
+          </a>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
