@@ -278,7 +278,7 @@ No obligation. Detailed report delivered within 5 business days.
 
 **Includes:**
 - Full technical & growth audit
-- Detailed PDF report (15+ pages)
+- Detailed PDF report (10+ pages)
 - 90-day implementation roadmap
 - 30-minute video review call
 - Delivered within 5 business days

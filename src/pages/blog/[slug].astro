@@ -133,36 +133,7 @@ const allPosts = await getCollection('blog');
       </Container>
     </section>
 
-    <!-- Newsletter CTA -->
-    <section class="py-12 bg-gradient-to-br from-orange-500/5 to-pink-500/5">
-      <Container className="max-w-3xl mx-auto text-center">
-        <div class="p-8 md:p-10 rounded-3xl">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto mb-4 text-primary">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18c0 .621.504 1.125 1.125 1.125h2.25" />
-          </svg>
-          <h2 class="text-2xl/tight sm:text-3xl/tight font-bold text-heading-1 mb-3">
-            Stay Updated with Shopify Insights
-          </h2>
-          <Paragraph className="text-base mb-6">
-            Get expert tips, industry news, and exclusive content delivered to your inbox.
-          </Paragraph>
-          <form action="#" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              class="flex-1 px-5 py-3 rounded-full border border-box-border bg-body text-heading-1 focus:outline-none focus:border-primary"
-              required
-            />
-            <Button variant="primary" className="px-6 py-3 text-white whitespace-nowrap glow-button">
-              Subscribe
-            </Button>
-          </form>
-          <p class="text-sm text-heading-3 mt-4">
-            No spam, unsubscribe anytime.
-          </p>
-        </div>
-      </Container>
-    </section>
+
 
     <!-- Related Posts -->
     {relatedPosts.length > 0 && (

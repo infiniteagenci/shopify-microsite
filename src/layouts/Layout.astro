@@ -1,160 +1,225 @@
 ---
 import Footer from "../components/elements/Footer.astro";
 import Navbar from "../components/elements/Navbar.astro";
-import "../styles/global.css"
+import "../styles/global.css";
 export interface Props {
-  title: string;
-  description?: string;
-  image?: string;
-  type?: "website" | "article";
+    title: string;
+    description?: string;
+    image?: string;
+    type?: "website" | "article";
 }
 
-const { title, description = "Infinite.agency - Shopify experts with 25+ years of experience. We build custom Shopify themes, apps, and help optimize your store for AI search engines like ChatGPT, Perplexity, and Copilot.", image = "/images/og-image.jpg", type = "website" } = Astro.props;
+const {
+    title,
+    description = "Infinite.agency - Shopify experts with 25+ years of experience. We build custom Shopify themes, apps, and help optimize your store for AI search engines like ChatGPT, Perplexity, and Copilot.",
+    image = "/images/og-image.jpg",
+    type = "website",
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
 
-     <!-- a href -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="oOiCv68s/2Fo6pPS+DIkyQ" async></script>
+        <!-- a href -->
+        <script
+            src="https://analytics.ahrefs.com/analytics.js"
+            data-key="oOiCv68s/2Fo6pPS+DIkyQ"
+            async></script>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content={type} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={`Infinite.agency - ${title}`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content={type} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={`Infinite.agency - ${title}`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonicalURL} />
-    <meta name="twitter:title" content={`Infinite.agency - ${title}`} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, Astro.url)} />
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={canonicalURL} />
+        <meta name="twitter:title" content={`Infinite.agency - ${title}`} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={new URL(image, Astro.url)} />
 
-    <title>Infinite.agency - {title}</title>
+        <title>Infinite.agency - {title}</title>
 
-    <!-- Inter Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- Inter Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- Roboto Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap" rel="stylesheet">
+        <!-- Roboto Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- Schema.org JSON-LD -->
-    <script set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": type === "article" ? "Article" : "Organization",
-      "name": "Infinite.agency",
-      "url": Astro.site,
-      "logo": "https://infinite.agency/logo.png",
-      "description": description,
-      "sameAs": [
-        "https://twitter.com/infiniteagency",
-        "https://linkedin.com/company/infiniteagency"
-      ]
-    })} type="application/ld+json" />
+        <!-- Schema.org JSON-LD -->
+        <script
+            set:html={JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": type === "article" ? "Article" : "Organization",
+                name: "Infinite.agency",
+                url: Astro.site,
+                logo: "https://infinite.agency/logo.png",
+                description: description,
+                sameAs: [
+                    "https://twitter.com/infiniteagency",
+                    "https://linkedin.com/company/infiniteagency",
+                ],
+            })}
+            type="application/ld+json"
+        />
 
-    <!-- Clarity tracking code start -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "uvf0t9jlyi");
-    </script>
-    <!-- Clarity tracking code ends -->
-  </head>
-  <body class="bg-body overflow-hidden overflow-y-auto">
-    <Navbar />
-    <slot />
-    <Footer />
-  </body>
+        <!-- Clarity tracking code start -->
+        <script type="text/javascript">
+            (function (c, l, a, r, i, t, y) {
+                c[a] =
+                    c[a] ||
+                    function () {
+                        (c[a].q = c[a].q || []).push(arguments);
+                    };
+                t = l.createElement(r);
+                t.async = 1;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "uvf0t9jlyi");
+        </script>
+        <!-- Clarity tracking code ends -->
 
-  <!-- Theme Toggle Script -->
-  <script>
-    const switchTheme = document.querySelector(
-      "[data-switch-theme]"
-    ) as HTMLButtonElement;
+        <!--
+    <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=AW-17953480666"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-    // Default to dark mode
-    const savedTheme = localStorage.getItem("appTheme");
-    if (savedTheme === "light") {
-      document.documentElement.classList.remove("dark");
-    } else {
-      // Default to dark mode
-      document.documentElement.classList.add("dark");
-      if (!savedTheme) {
-        localStorage.setItem("appTheme", "dark");
-      }
-    }
+            gtag("config", "AW-17953480666");
+        </script>
 
-    if (switchTheme) {
-      switchTheme.addEventListener("click", (e) => {
-        e.preventDefault();
-        const doc = document.documentElement;
-        if (doc.classList.contains("dark")) {
-          doc.classList.remove("dark");
-          localStorage.setItem("appTheme", "light");
+        <!-- google ends -->
+
+        <!-- click -->
+        <!-- Event snippet for Submit lead form conversion page
+        In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+        <script>
+            function gtag_report_conversion(url) {
+                var callback = function () {
+                    if (typeof url != "undefined") {
+                        window.location = url;
+                    }
+                };
+                gtag("event", "conversion", {
+                    send_to: "AW-17953480666/5usfCPLSv_gbENq_8fBC",
+                    value: 1.0,
+                    currency: "GBP",
+                    event_callback: callback,
+                });
+                return false;
+            }
+        </script>
+
+        <!-- click end -->
+    </head>
+    <body class="bg-body overflow-hidden overflow-y-auto">
+        <Navbar />
+        <slot />
+        <Footer />
+    </body>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const switchTheme = document.querySelector(
+            "[data-switch-theme]",
+        ) as HTMLButtonElement;
+
+        // Default to dark mode
+        const savedTheme = localStorage.getItem("appTheme");
+        if (savedTheme === "light") {
+            document.documentElement.classList.remove("dark");
         } else {
-          doc.classList.add("dark");
-          localStorage.setItem("appTheme", "dark");
+            // Default to dark mode
+            document.documentElement.classList.add("dark");
+            if (!savedTheme) {
+                localStorage.setItem("appTheme", "dark");
+            }
         }
-      });
-    }
-  </script>
 
-  <!-- Mobile Navigation Script -->
-  <script>
-    const toggleMenu = document.querySelector(
-      "[data-toggle-nav]"
-    ) as HTMLButtonElement;
-    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
-    const overlayNav = document.querySelector(
-      "[data-nav-overlay]"
-    ) as HTMLDivElement;
-    if (toggleMenu) {
-      toggleMenu.addEventListener("click", e => {
-        e.preventDefault();
-        if (toggleMenu.getAttribute("data-open-nav") === "false") {
-          toggleMenu.setAttribute("data-open-nav", "true");
-          overlayNav.setAttribute("data-is-visible", "true");
-          document.body.classList.add("!overflow-y-hidden");
-          navbar.style.height = `${navbar.scrollHeight}px`
-
-        }else{
-          toggleMenu.setAttribute("data-open-nav", "false");
-          overlayNav.setAttribute("data-is-visible", "false");
-          document.body.classList.remove("!overflow-y-hidden");
-          navbar.style.height = "0px"
+        if (switchTheme) {
+            switchTheme.addEventListener("click", (e) => {
+                e.preventDefault();
+                const doc = document.documentElement;
+                if (doc.classList.contains("dark")) {
+                    doc.classList.remove("dark");
+                    localStorage.setItem("appTheme", "light");
+                } else {
+                    doc.classList.add("dark");
+                    localStorage.setItem("appTheme", "dark");
+                }
+            });
         }
-      });
+    </script>
 
-      navbar.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-        navbar.style.height = "0px"
-      });
+    <!-- Mobile Navigation Script -->
+    <script>
+        const toggleMenu = document.querySelector(
+            "[data-toggle-nav]",
+        ) as HTMLButtonElement;
+        const navbar = document.querySelector(
+            "[data-navbar]",
+        ) as HTMLDivElement;
+        const overlayNav = document.querySelector(
+            "[data-nav-overlay]",
+        ) as HTMLDivElement;
+        if (toggleMenu) {
+            toggleMenu.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (toggleMenu.getAttribute("data-open-nav") === "false") {
+                    toggleMenu.setAttribute("data-open-nav", "true");
+                    overlayNav.setAttribute("data-is-visible", "true");
+                    document.body.classList.add("!overflow-y-hidden");
+                    navbar.style.height = `${navbar.scrollHeight}px`;
+                } else {
+                    toggleMenu.setAttribute("data-open-nav", "false");
+                    overlayNav.setAttribute("data-is-visible", "false");
+                    document.body.classList.remove("!overflow-y-hidden");
+                    navbar.style.height = "0px";
+                }
+            });
 
-      overlayNav.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-        navbar.style.height = "0px"
-      });
-    }
-  </script>
+            navbar.addEventListener("click", () => {
+                toggleMenu.setAttribute("data-open-nav", "false");
+                overlayNav.setAttribute("data-is-visible", "false");
+                document.body.classList.remove("!overflow-y-hidden");
+                navbar.style.height = "0px";
+            });
+
+            overlayNav.addEventListener("click", () => {
+                toggleMenu.setAttribute("data-open-nav", "false");
+                overlayNav.setAttribute("data-is-visible", "false");
+                document.body.classList.remove("!overflow-y-hidden");
+                navbar.style.height = "0px";
+            });
+        }
+    </script>
 </html>
