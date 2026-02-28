@@ -1,0 +1,99 @@
+---
+/**
+ * LocalBusinessSchema.astro - LocalBusiness Schema.org structured data
+ * Generates LocalBusiness schema for London office location
+ */
+
+interface Address {
+  streetAddress?: string;
+  addressLocality: string;
+  addressRegion?: string;
+  postalCode?: string;
+  addressCountry: string;
+}
+
+interface Geo {
+  latitude: number;
+  longitude: number;
+}
+
+interface OpeningHoursSpecification {
+  dayOfWeek: string[];
+  opens: string;
+  closes: string;
+}
+
+interface Props {
+  name: string;
+  description?: string;
+  url?: string;
+  telephone?: string;
+  email?: string;
+  address: Address;
+  geo?: Geo;
+  openingHoursSpecification?: OpeningHoursSpecification[];
+  priceRange?: string;
+  image?: string;
+  sameAs?: string[];
+}
+
+const {
+  name,
+  description,
+  url,
+  telephone,
+  email,
+  address,
+  geo,
+  openingHoursSpecification,
+  priceRange,
+  image,
+  sameAs = [],
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name,
+  ...(description && { description }),
+  ...(url && { url }),
+  ...(telephone && { telephone }),
+  ...(email && { email }),
+  address: {
+    "@type": "PostalAddress",
+    ...address,
+  },
+  ...(geo && {
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: geo.latitude,
+      longitude: geo.longitude,
+    },
+  }),
+  ...(openingHoursSpecification && {
+    openingHoursSpecification: openingHoursSpecification.map((spec) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: spec.dayOfWeek,
+      opens: spec.opens,
+      closes: spec.closes,
+    })),
+  }),
+  ...(priceRange && { priceRange }),
+  ...(image && { image }),
+  ...(sameAs.length > 0 && { sameAs }),
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: geo?.latitude || 51.5074,
+      longitude: geo?.longitude || -0.1278,
+    },
+    geoRadius: "100000",
+  },
+};
+---
+
+<script
+  set:html={JSON.stringify(schema)}
+  type="application/ld+json"
+/>

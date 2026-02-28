@@ -1,0 +1,79 @@
+---
+/**
+ * ArticleSchema.astro - Article Schema.org structured data
+ * Generates Article schema for blog posts with full metadata
+ */
+
+interface Author {
+  name: string;
+  url?: string;
+}
+
+interface Publisher {
+  name: string;
+  logo?: string;
+}
+
+interface Props {
+  headline: string;
+  image: string;
+  datePublished: string;
+  dateModified?: string;
+  author: Author | Author[];
+  publisher: Publisher;
+  description?: string;
+  url?: string;
+}
+
+const {
+  headline,
+  image,
+  datePublished,
+  dateModified,
+  author,
+  publisher,
+  description,
+  url,
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline,
+  image,
+  datePublished,
+  ...(dateModified && { dateModified }),
+  author: Array.isArray(author)
+    ? author.map((a) => ({
+        "@type": "Person",
+        name: a.name,
+        ...(a.url && { url: a.url }),
+      }))
+    : {
+        "@type": "Person",
+        name: author.name,
+        ...(author.url && { url: author.url }),
+      },
+  publisher: {
+    "@type": "Organization",
+    name: publisher.name,
+    ...(publisher.logo && {
+      logo: {
+        "@type": "ImageObject",
+        url: publisher.logo,
+      },
+    }),
+  },
+  ...(description && { description }),
+  ...(url && { url }),
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": url,
+  },
+};
+---
+
+<script
+  set:html={JSON.stringify(schema)}
+  type="application/ld+json"
+/>

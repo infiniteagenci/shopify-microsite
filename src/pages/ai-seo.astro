@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/shared/Container.astro';
+import Paragraph from '../components/shared/Paragraph.astro';
+import { getCollection } from 'astro:content';
+
+const seoDescription = "AI SEO hub by Infinite.agency - Learn how to optimise your Shopify store for ChatGPT, Perplexity, and AI search engines. Expert guides, services, and strategies.";
+
+// Get AI-related blog posts
+const allPosts = await getCollection('blog');
+const aiPosts = allPosts.filter(post =>
+  post.data.title.toLowerCase().includes('ai') ||
+  post.data.title.toLowerCase().includes('chatgpt') ||
+  post.slug.includes('ai') ||
+  post.slug.includes('chatgpt')
+).sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+---
+
+<Layout title="AI SEO for Shopify - ChatGPT & Perplexity Optimisation" description={seoDescription}>
+  <main class="flex flex-col section-gap-y overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative hero-padding-top hero-padding-bottom">
+      <Container className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <h1 class="text-hero font-bold text-heading-1 mb-8">
+          AI SEO for <span class="text-gradient-brand">Shopify Stores</span>
+        </h1>
+        <Paragraph className="text-xl max-w-3xl">
+          Optimise your Shopify store for the future of search. Our London team specialises in making your products discoverable in ChatGPT, Perplexity, Copilot, and emerging AI search engines.
+        </Paragraph>
+      </Container>
+    </section>
+
+    <!-- What is AI SEO -->
+    <section class="relative section-padding-y">
+      <Container className="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">What is AI SEO?</h2>
+          <Paragraph className="text-lg">
+            AI SEO represents a fundamental shift in how consumers discover products online.
+          </Paragraph>
+        </div>
+        <div class="box space-y-6">
+          <p class="text-heading-3 leading-relaxed">
+            Traditional SEO focuses on ranking in Google's search results. AI SEO is about ensuring your products are recommended when users ask ChatGPT, Perplexity, Claude, or other AI assistants for shopping suggestions. These AI systems don't just return links—they provide direct answers, product comparisons, and personalised recommendations.
+          </p>
+          <p class="text-heading-3 leading-relaxed">
+            The challenge is that AI search engines work differently. They rely on structured data, entity understanding, and context rather than just keywords and backlinks. To succeed in this new landscape, Shopify stores need specialised optimisation strategies that make their products comprehensible and recommendable to AI systems.
+          </p>
+          <p class="text-heading-3 leading-relaxed">
+            At Infinite.agency, we're pioneers in AI SEO for Shopify. Our London team has developed proven strategies for improving your store's visibility in AI search results, ensuring you don't miss out on this rapidly growing source of qualified traffic.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <!-- AI SEO Services -->
+    <section class="relative section-padding-y gradient-subtle-orange">
+      <Container className="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Our AI SEO Services</h2>
+          <Paragraph className="text-lg max-w-3xl mx-auto">
+            Comprehensive solutions to make your Shopify store AI-search friendly.
+          </Paragraph>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Schema Markup Implementation</h3>
+            <p class="text-sm text-heading-3">
+              Advanced structured data that helps AI systems understand your products, prices, reviews, and availability.
+            </p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Product Description Optimisation</h3>
+            <p class="text-sm text-heading-3">
+              Crafting product content that aligns with how AI models process and recommend products.
+            </p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Knowledge Graph Integration</h3>
+            <p class="text-sm text-heading-3">
+              Establishing your brand and products as entities within AI knowledge graphs for better visibility.
+            </p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">AI Search Audits</h3>
+            <p class="text-sm text-heading-3">
+              Comprehensive analysis of how AI search engines currently perceive and rank your products.
+            </p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Content Strategy</h3>
+            <p class="text-sm text-heading-3">
+              Developing AI-friendly content that positions your brand as an authority in your niche.
+            </p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Monitoring & Reporting</h3>
+            <p class="text-sm text-heading-3">
+              Track your AI search visibility over time with detailed performance metrics.
+            </p>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a
+            href="/services#ai-seo-optimisation"
+            class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+          >
+            Explore Our AI SEO Services
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="icon-sm">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+        </div>
+      </Container>
+    </section>
+
+    <!-- AI SEO Articles -->
+    {aiPosts.length > 0 && (
+    <section class="relative section-padding-y">
+      <Container className="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Learn About AI SEO</h2>
+          <Paragraph className="text-lg max-w-3xl mx-auto">
+            Expert insights from our London team on optimising for AI search engines.
+          </Paragraph>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {aiPosts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="group box card-hover flex flex-col h-full">
+              <div class="relative aspect-video rounded-xl mb-4 overflow-hidden">
+                <img
+                  src={post.data.image}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <span class="absolute top-3 left-3 px-3 py-1 text-xs font-semibold bg-primary/90 backdrop-blur-sm text-white rounded-full">
+                  {post.data.category}
+                </span>
+              </div>
+              <h3 class="text-lg font-semibold text-heading-1 mb-2 group-hover:text-primary transition-colors">
+                {post.data.title}
+              </h3>
+              <p class="text-sm text-heading-3 flex-1">
+                {post.data.description}
+              </p>
+              <span class="inline-flex items-center gap-2 text-primary font-semibold mt-4 text-sm group-hover:gap-3 transition-all">
+                Read Article
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </section>
+    )}
+
+    <!-- FAQ Section -->
+    <section class="relative section-padding-y">
+      <Container className="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Frequently Asked Questions</h2>
+          <Paragraph className="text-lg">
+            Everything you need to know about AI SEO for Shopify.
+          </Paragraph>
+        </div>
+        <div class="space-y-6">
+          <div class="box">
+            <h3 class="text-lg font-semibold text-heading-1 mb-3">Why is AI SEO important for my Shopify store?</h3>
+            <p class="text-heading-3 leading-relaxed">
+              AI search engines like ChatGPT and Perplexity are rapidly becoming how people discover products. Unlike traditional search, these AI systems provide direct recommendations rather than just links. If your products aren't optimised for AI discovery, you're missing out on a growing source of qualified traffic and sales. Early adoption gives you a competitive advantage as this channel continues to expand.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3 class="text-lg font-semibold text-heading-1 mb-3">How do AI search engines differ from Google?</h3>
+            <p class="text-heading-3 leading-relaxed">
+              AI search engines use large language models to understand context, intent, and relationships between products. They rely heavily on structured data (schema markup), entity understanding, and comprehensive product information rather than just keywords and backlinks. AI systems also prioritise different factors like brand authority, product specificity, and how well information can be synthesised into helpful recommendations.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3 class="text-lg font-semibold text-heading-1 mb-3">What's involved in AI SEO optimisation?</h3>
+            <p class="text-heading-3 leading-relaxed">
+              AI SEO optimisation includes implementing advanced schema markup (Product, Organization, FAQPage), creating entity-focused product descriptions, optimising images with detailed alt text and captions, building topical authority through content, ensuring your brand is established in knowledge graphs, and monitoring AI search performance. It's both a technical and content-driven approach.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3 class="text-lg font-semibold text-heading-1 mb-3">How long does it take to see results from AI SEO?</h3>
+            <p class="text-heading-3 leading-relaxed">
+              Unlike traditional SEO, AI SEO can show results more quickly because AI systems are constantly learning and updating their knowledge. Initial optimisations may be reflected within weeks as AI systems recrawl your data. However, building sustained visibility and authority is an ongoing process that compounds over time. We typically see measurable improvements in AI search visibility within 2-3 months.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3 class="text-lg font-semibold text-heading-1 mb-3">Do I need AI SEO if I already have good Google rankings?</h3>
+            <p class="text-heading-3 leading-relaxed">
+              Yes, absolutely. Google rankings and AI search visibility are separate channels. Even if you rank well in traditional search, you may not appear in AI recommendations. AI SEO complements your existing SEO efforts rather than replacing them. As AI assistants become more integrated into shopping experiences, optimising for this channel ensures you're not losing customers who use AI for product discovery.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3 class="text-lg font-semibold text-heading-1 mb-3">Which AI search engines should I focus on?</h3>
+            <p class="text-heading-3 leading-relaxed">
+              The major players include ChatGPT (OpenAI), Perplexity AI, Claude (Anthropic), and Copilot (Microsoft). Each has slightly different approaches, but the foundational principles of AI SEO—structured data, entity optimisation, and comprehensive product information—apply across all platforms. Our optimisation strategies ensure your store is well-positioned across all major AI search engines.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3 class="text-lg font-semibold text-heading-1 mb-3">Can you guarantee my products will appear in AI search results?</h3>
+            <p class="text-heading-3 leading-relaxed">
+              No agency can guarantee specific AI search rankings because these systems use proprietary algorithms that constantly evolve. However, we can dramatically improve your chances by implementing proven optimisation strategies. Our clients consistently see significant improvements in AI search visibility. We focus on the factors within your control and provide transparent reporting on your progress.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative section-padding-y">
+      <Container className="max-w-4xl mx-auto">
+        <div class="cta-box text-center">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Ready to Optimise for AI Search?</h2>
+          <Paragraph className="text-lg mb-8">
+            Don't get left behind as search evolves. Our London team can help you establish visibility in ChatGPT, Perplexity, and beyond.
+          </Paragraph>
+          <a
+            href="https://forms.gle/f4VL7etjU2psfh8o9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary glow-button gradient-button inline-flex justify-center items-center px-8 py-4 text-black"
+          >
+            Get AI SEO Expert Help
+          </a>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>

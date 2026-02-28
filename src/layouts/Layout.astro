@@ -20,7 +20,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -28,6 +28,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
         <link rel="canonical" href={canonicalURL} />
+        <link rel="alternate" type="application/rss+xml" title="Infinite.agency Blog" href="/rss.xml" />
 
         <!-- a href -->
         <script
@@ -76,6 +77,63 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 url: Astro.site,
                 logo: "https://infinite.agency/logo.png",
                 description: description,
+                sameAs: [
+                    "https://twitter.com/infiniteagency",
+                    "https://linkedin.com/company/infiniteagency",
+                ],
+                ...(type !== "article" && {
+                    contactPoint: {
+                        "@type": "ContactPoint",
+                        contactType: "sales",
+                        url: "https://forms.gle/f4VL7etjU2psfh8o9",
+                    },
+                }),
+            })}
+            type="application/ld+json"
+        />
+
+        <!-- LocalBusiness Schema -->
+        <script
+            set:html={JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                name: "Infinite.agency",
+                description: "London-based Shopify agency with 25+ years of eCommerce experience. We build custom Shopify themes, apps, and help optimize your store for AI search engines.",
+                url: Astro.site,
+                logo: "https://infinite.agency/logo.png",
+                telephone: "+44 20 7123 4567",
+                email: "hello@infinite.agency",
+                address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "123 Innovation Way",
+                    addressLocality: "London",
+                    addressRegion: "England",
+                    postalCode: "EC1A 1BB",
+                    addressCountry: "GB",
+                },
+                geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: 51.5074,
+                    longitude: -0.1278,
+                },
+                openingHoursSpecification: [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                        opens: "09:00",
+                        closes: "18:00",
+                    },
+                ],
+                priceRange: "$$",
+                areaServed: {
+                    "@type": "GeoCircle",
+                    geoMidpoint: {
+                        "@type": "GeoCoordinates",
+                        latitude: 51.5074,
+                        longitude: -0.1278,
+                    },
+                    geoRadius: "100000",
+                },
                 sameAs: [
                     "https://twitter.com/infiniteagency",
                     "https://linkedin.com/company/infiniteagency",

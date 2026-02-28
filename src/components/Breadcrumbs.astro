@@ -1,0 +1,120 @@
+---
+/**
+ * Breadcrumbs component with JSON-LD schema markup
+ * Generates breadcrumb trail from current URL path
+ */
+import { getBreadcrumbSchema } from '../utils/breadcrumbs.ts';
+
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage } = Astro.props;
+
+// Get current path and build breadcrumbs
+const path = Astro.url.pathname;
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+];
+
+// Split path and build breadcrumb items
+if (path !== '/') {
+  const segments = path.split('/').filter(Boolean);
+  let buildPath = '';
+
+  for (let i = 0; i < segments.length; i++) {
+    buildPath += '/' + segments[i];
+    const isLast = i === segments.length - 1;
+
+    // Format segment name (capitalize and replace hyphens)
+    let name = segments[i]
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+
+    // Use custom page title if provided, otherwise use formatted name
+    if (isLast && currentPage) {
+      name = currentPage;
+    }
+
+    breadcrumbs.push({
+      name,
+      url: buildPath + (isLast ? '' : '/'),
+    });
+  }
+}
+
+// Generate JSON-LD schema
+const schema = getBreadcrumbSchema(breadcrumbs);
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+  <ol class="breadcrumbs-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    {breadcrumbs.map((crumb, index) => (
+      <li
+        class="breadcrumb-item"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+      >
+        <a
+          href={crumb.url}
+          class="breadcrumb-link"
+          itemprop="item"
+        >
+          <span itemprop="name">{crumb.name}</span>
+        </a>
+        <meta itemprop="position" content={String(index + 1)} />
+        {index < breadcrumbs.length - 1 && (
+          <span class="breadcrumb-separator">/</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<!-- BreadcrumbList JSON-LD Schema -->
+<script
+  set:html={JSON.stringify(schema)}
+  type="application/ld+json"
+/>
+
+<style>
+  .breadcrumbs {
+    padding: 1rem;
+  }
+
+  .breadcrumbs-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumb-link {
+    color: rgb(var(--heading-3));
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: rgb(var(--primary));
+    text-decoration: underline;
+  }
+
+  .breadcrumb-separator {
+    color: rgb(var(--heading-3));
+  }
+
+  .breadcrumbs-list .breadcrumb-item:last-child .breadcrumb-link {
+    color: rgb(var(--heading-1));
+    font-weight: 500;
+    pointer-events: none;
+  }
+</style>

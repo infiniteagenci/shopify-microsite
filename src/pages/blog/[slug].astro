@@ -4,6 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Container from '../../components/shared/Container.astro';
 import Paragraph from '../../components/shared/Paragraph.astro';
 import Button from '../../components/shared/Button.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleSchema from '../../components/schema/ArticleSchema.astro';
 import { getCollection, getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,7 +17,7 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const post = await getEntry('blog', slug);
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 const seoDescription = post.data.description;
 
 // Get related posts (same category, excluding current post)
@@ -32,9 +34,60 @@ const allPosts = await getCollection('blog');
     const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
     const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
 
+// Generate Table of Contents from headings
+const tocItems = headings
+  .filter(h => h.depth === 2 || h.depth === 3)
+  .map(h => ({
+    text: h.text,
+    id: h.slug,
+    depth: h.depth,
+  }));
+
+// Article schema data
+const articleUrl = new URL(Astro.url.pathname, Astro.site);
+
 ---
 
-<Layout title={post.data.title} description={seoDescription}>
+<Layout title={post.data.title} description={seoDescription} type="article">
+  <!-- Article Schema -->
+  <ArticleSchema
+    headline={post.data.title}
+    image={post.data.image}
+    datePublished={post.data.date}
+    dateModified={post.data.date}
+    author={{
+      name: "Infinite.agency Team",
+      url: "https://infinite.agency"
+    }}
+    publisher={{
+      name: "Infinite.agency",
+      logo: "https://infinite.agency/logo.png"
+    }}
+    url={articleUrl.href}
+    description={post.data.description}
+    category={post.data.category}
+  />
+
+  <main class="flex flex-col gap-y-12 overflow-hidden">
+    <Breadcrumbs />
+
+    <!-- Hero Section with Image -->
+    headline={post.data.title}
+    image={post.data.image}
+    datePublished={post.data.date}
+    dateModified={post.data.date}
+    author={{
+      name: "Infinite.agency Team",
+      url: "https://infinite.agency"
+    }}
+    publisher={{
+      name: "Infinite.agency",
+      logo: "https://infinite.agency/logo.png"
+    }}
+    description={seoDescription}
+    url={articleUrl}
+  />
+
   <main class="flex flex-col gap-y-12 overflow-hidden">
     <!-- Hero Section with Image -->
     <section class="relative pt-16 lg:pt-20 pb-12">
@@ -83,6 +136,52 @@ const allPosts = await getCollection('blog');
     <!-- Content -->
     <section class="py-8">
       <Container className="max-w-4xl mx-auto">
+        <!-- Author Section -->
+        <div class="bg-box-bg rounded-2xl p-6 shadow-lg border border-box-border mb-8 flex flex-col sm:flex-row items-center sm:items-start gap-4">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#A855F7] to-[#EC4899] flex items-center justify-center text-white text-2xl font-bold shrink-0">
+            IA
+          </div>
+          <div class="flex-1 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+              <a href="/about" class="text-lg font-semibold text-heading-1 hover:text-primary transition-colors">
+                Infinite.agency Team
+              </a>
+              <span class="text-heading-3 hidden sm:inline">•</span>
+              <span class="text-sm text-heading-3">Shopify Experts & Growth Specialists</span>
+            </div>
+            <p class="text-sm text-heading-3 mb-1">
+              Last Updated: {new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+            </p>
+            <p class="text-sm text-heading-2">
+              London-based Shopify agency with 25+ years of ecommerce experience. We help brands scale through custom development, AI-optimized SEO, and performance-based marketing.
+            </p>
+          </div>
+        </div>
+
+        <!-- Table of Contents -->
+        {tocItems.length > 0 && (
+          <div class="bg-box-bg rounded-2xl p-6 shadow-lg border border-box-border mb-8">
+            <h2 class="text-lg font-bold text-heading-1 mb-4 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-primary">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+              </svg>
+              Table of Contents
+            </h2>
+            <nav class="space-y-2">
+              {tocItems.map(item => (
+                <a
+                  href={`#${item.id}`}
+                  class={`block text-heading-3 hover:text-primary transition-colors ${
+                    item.depth === 3 ? 'pl-6 text-sm' : ''
+                  }`}
+                >
+                  {item.text}
+                </a>
+              ))}
+            </nav>
+          </div>
+        )}
+
         <article class="max-w-none">
           <div class="bg-box-bg rounded-2xl p-8 md:p-10 shadow-lg border border-box-border blog-content">
             <Content />
@@ -216,12 +315,14 @@ const allPosts = await getCollection('blog');
     font-size: 1.75rem;
     line-height: 1.3;
     text-wrap: balance;
+    scroll-margin-top: 2rem;
   }
 
   .blog-content h3 {
     font-size: 1.375rem;
     line-height: 1.4;
     text-wrap: balance;
+    scroll-margin-top: 2rem;
   }
 
   .blog-content p {

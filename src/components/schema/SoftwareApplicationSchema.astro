@@ -1,0 +1,104 @@
+---
+/**
+ * SoftwareApplicationSchema.astro - SoftwareApplication Schema.org structured data
+ * Generates SoftwareApplication schema for Shopify apps
+ */
+
+interface Offer {
+  price: string;
+  priceCurrency: string;
+  availability?: string;
+}
+
+interface AggregateRating {
+  ratingValue: number;
+  ratingCount: number;
+  bestRating?: number;
+  worstRating?: number;
+}
+
+interface Props {
+  name: string;
+  description: string;
+  applicationCategory: string;
+  operatingSystem?: string;
+  offers?: Offer;
+  aggregateRating?: AggregateRating;
+  url?: string;
+  image?: string;
+  softwareVersion?: string;
+  author?: {
+    name: string;
+    url?: string;
+  };
+  publisher?: {
+    name: string;
+    url?: string;
+  };
+  featureList?: string[];
+}
+
+const {
+  name,
+  description,
+  applicationCategory,
+  operatingSystem = "Shopify",
+  offers,
+  aggregateRating,
+  url,
+  image,
+  softwareVersion,
+  author,
+  publisher,
+  featureList,
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name,
+  description,
+  applicationCategory,
+  operatingSystem,
+  ...(offers && {
+    offers: {
+      "@type": "Offer",
+      price: offers.price,
+      priceCurrency: offers.priceCurrency,
+      ...(offers.availability && {
+        availability: `https://schema.org/${offers.availability}`,
+      }),
+    },
+  }),
+  ...(aggregateRating && {
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: aggregateRating.ratingValue,
+      ratingCount: aggregateRating.ratingCount,
+      bestRating: aggregateRating.bestRating || 5,
+      worstRating: aggregateRating.worstRating || 1,
+    },
+  }),
+  ...(url && { url }),
+  ...(image && { image }),
+  ...(softwareVersion && { softwareVersion }),
+  ...(author && {
+    author: {
+      "@type": "Organization",
+      ...author,
+    },
+  }),
+  ...(publisher && {
+    publisher: {
+      "@type": "Organization",
+      ...publisher,
+    },
+  }),
+  ...(featureList && { featureList }),
+};
+---
+
+<script
+  set:html={JSON.stringify(schema)}
+  type="application/ld+json"
+/>

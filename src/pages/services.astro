@@ -3,13 +3,32 @@ import Layout from '../layouts/Layout.astro';
 import Container from '../components/shared/Container.astro';
 import Paragraph from '../components/shared/Paragraph.astro';
 import Button from '../components/shared/Button.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ServiceSchema from '../components/schema/ServiceSchema.astro';
 import { services } from '../utils/data.ts';
 
-const seoDescription = "Comprehensive Shopify services by Infinite.agency, London's premier Shopify agency. From vibe-coded site audits to custom themes, app development, and AI-optimized SEO for ChatGPT and Perplexity discovery.";
+const seoDescription = "Shopify services in London by Infinite.agency. Custom themes, apps, AI SEO for ChatGPT/Perplexity, and audits. 25+ years expertise.";
 ---
 
 <Layout title="Services" description={seoDescription}>
+  <!-- Service Schemas -->
+  {services.map((service) => (
+    <ServiceSchema
+      name={service.title}
+      description={service.description}
+      provider={{
+        name: "Infinite.agency",
+        url: "https://infinite.agency"
+      }}
+      serviceType="ProfessionalService"
+      areaServed={["London", "United Kingdom", "International"]}
+      url={`https://infinite.agency/services#${service.slug}`}
+    />
+  ))}
+
   <main class="flex flex-col section-gap-y overflow-hidden">
+    <Breadcrumbs currentPage="Services" />
+
     <!-- Hero Section -->
     <section class="relative hero-padding-top hero-padding-bottom">
       <Container className="flex flex-col items-center text-center max-w-4xl mx-auto">

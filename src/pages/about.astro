@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/shared/Container.astro';
+import Paragraph from '../components/shared/Paragraph.astro';
+
+const seoDescription = "Learn about Infinite.agency - London's Shopify experts with 25+ years of retail eCommerce experience. Discover our mission, values, and expertise in custom themes, apps, and AI SEO.";
+---
+
+<Layout title="About Us - London Shopify Experts" description={seoDescription}>
+  <main class="flex flex-col section-gap-y overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative hero-padding-top hero-padding-bottom">
+      <Container className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <h1 class="text-hero font-bold text-heading-1 mb-8">
+          About <span class="text-gradient-brand">Infinite.agency</span>
+        </h1>
+        <Paragraph className="text-xl max-w-3xl">
+          With over 25 years of retail eCommerce experience, we're London's trusted Shopify experts helping brands navigate the AI-driven commerce landscape.
+        </Paragraph>
+      </Container>
+    </section>
+
+    <!-- Our Story -->
+    <section class="relative section-padding-y">
+      <Container className="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Our Story</h2>
+        </div>
+        <div class="box space-y-6">
+          <p class="text-heading-3 leading-relaxed">
+            Founded in the heart of London, Infinite.agency emerged from a simple observation: the eCommerce landscape was evolving at an unprecedented pace. With over 25 years of combined experience in retail eCommerce, our founders recognised that brands needed more than just a Shopify store—they needed a partner who understood both the technical complexities and the strategic imperatives of modern commerce.
+          </p>
+          <p class="text-heading-3 leading-relaxed">
+            Since our inception, we've been at the forefront of eCommerce innovation. From the early days of custom Liquid development to the current era of AI-powered search engines and headless commerce, we've continuously evolved our expertise to serve our clients' needs. Our London-based team has helped over 100 brands launch, optimise, and scale their online stores across the UK and globally.
+          </p>
+          <p class="text-heading-3 leading-relaxed">
+            What sets us apart is our deep commitment to understanding each client's unique business model. We don't believe in one-size-fits-all solutions. Instead, we craft bespoke strategies that align with your brand identity, target audience, and growth objectives. Whether you're a D2C startup or an established retail giant, we bring the same level of dedication and strategic thinking to every project.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Our Mission & Values -->
+    <section class="relative section-padding-y gradient-subtle-orange">
+      <Container className="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Our Mission & Values</h2>
+          <Paragraph className="text-lg max-w-3xl mx-auto">
+            Everything we do is guided by our commitment to excellence, innovation, and client success.
+          </Paragraph>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="box">
+            <div class="w-16 h-16 rounded-xl flex items-center justify-center text-primary mb-6" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-heading-1 mb-4">Our Mission</h3>
+            <p class="text-heading-3 leading-relaxed">
+              To empower ambitious brands with exceptional Shopify solutions that drive measurable growth. We believe in transparent communication, technical excellence, and building long-term partnerships founded on trust and mutual success. Our mission is to demystify eCommerce complexity and provide clear, actionable strategies that deliver real ROI.
+            </p>
+          </div>
+
+          <div class="box">
+            <div class="w-16 h-16 rounded-xl flex items-center justify-center text-primary mb-6" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-heading-1 mb-4">Our Values</h3>
+            <ul class="space-y-3 text-heading-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Excellence:</strong> We pursue technical and strategic excellence in every project.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Transparency:</strong> Honest communication and clear project milestones.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Innovation:</strong> Embracing AI, headless, and cutting-edge technologies.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Partnership:</strong> Your success is our success—measured by your growth.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Our Expertise -->
+    <section class="relative section-padding-y">
+      <Container className="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Our Expertise</h2>
+          <Paragraph className="text-lg max-w-3xl mx-auto">
+            Deep technical knowledge combined with strategic business acumen.
+          </Paragraph>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Custom Development</h3>
+            <p class="text-sm text-heading-3">Specialists in Liquid, Hydrogen, headless architecture, and complex custom functionality.</p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">App Development</h3>
+            <p class="text-sm text-heading-3">Building powerful, scalable Shopify apps that solve real merchant problems.</p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">AI SEO Optimisation</h3>
+            <p class="text-sm text-heading-3">Pioneering strategies for ChatGPT, Perplexity, and AI search engine discovery.</p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Performance</h3>
+            <p class="text-sm text-heading-3">Core Web Vitals optimisation, speed improvements, and conversion rate optimisation.</p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Mobile-First</h3>
+            <p class="text-sm text-heading-3">Responsive design optimised for mobile commerce and seamless cross-device experiences.</p>
+          </div>
+
+          <div class="box card-hover">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-primary mb-4" style="background-color: rgb(var(--color-primary) / 0.1)">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-heading-1 mb-2">Security & Audits</h3>
+            <p class="text-sm text-heading-3">Comprehensive security assessments, vibe-coded audits, and compliance verification.</p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Why London Matters -->
+    <section class="relative section-padding-y">
+      <Container className="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Why Our London Location Matters</h2>
+        </div>
+        <div class="box space-y-6">
+          <p class="text-heading-3 leading-relaxed">
+            Being based in London positions us at the intersection of European and global commerce. Our team understands the nuances of both UK and international markets, from regulatory compliance to cultural preferences in user experience design. We're perfectly positioned to serve British brands expanding globally and international brands entering the UK market.
+          </p>
+          <p class="text-heading-3 leading-relaxed">
+            London's thriving tech ecosystem keeps us connected to the latest eCommerce innovations, while our proximity to major retail hubs enables us to stay attuned to industry trends. We regularly engage with the Shopify community, attend industry events, and contribute to the broader conversation about the future of commerce technology.
+          </p>
+          <p class="text-heading-3 leading-relaxed">
+            Our clients appreciate having a UK-based team they can meet with in person, understand their local market context, and provide support in their time zone. While we serve clients globally, our London roots inform everything from our design sensibilities to our strategic approach.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative section-padding-y">
+      <Container className="max-w-4xl mx-auto">
+        <div class="cta-box text-center">
+          <h2 class="text-section-title font-bold text-heading-1 mb-6">Let's Build Something Exceptional Together</h2>
+          <Paragraph className="text-lg mb-8">
+            Whether you're launching a new store or optimising an existing one, our London team is ready to help you achieve your goals.
+          </Paragraph>
+          <a
+            href="https://forms.gle/f4VL7etjU2psfh8o9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary glow-button gradient-button inline-flex justify-center items-center px-8 py-4 text-black"
+          >
+            Schedule a Consultation
+          </a>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>

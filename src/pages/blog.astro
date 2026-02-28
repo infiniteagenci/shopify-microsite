@@ -4,12 +4,13 @@ import Layout from '../layouts/Layout.astro';
 import Container from '../components/shared/Container.astro';
 import Paragraph from '../components/shared/Paragraph.astro';
 import Button from '../components/shared/Button.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
-
-const seoDescription = "Shopify blog by Infinite.agency - Expert insights on AI SEO, custom themes, app development, and eCommerce growth strategies from London's Shopify experts.";
 
 // Get all blog posts
 const allPosts = await getCollection('blog');
+
+const seoDescription = "Shopify blog by Infinite.agency - Expert insights on AI SEO, custom themes, app development, and eCommerce growth strategies from London's Shopify experts.";
 
 // Sort by date (newest first)
 const blogPosts = allPosts
@@ -21,6 +22,8 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))];
 
 <Layout title="Blog" description={seoDescription}>
   <main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
+    <Breadcrumbs currentPage="Blog" />
+
     <!-- Hero Section -->
     <section class="relative pt-32 lg:pt-36 pb-20">
       <Container className={"flex flex-col items-center text-center max-w-4xl mx-auto"}>
@@ -36,12 +39,18 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))];
     <!-- Category Filter -->
     <section class="relative py-8">
       <Container className="max-w-4xl mx-auto">
-        <div class="flex flex-wrap justify-center gap-3">
-          <button class="px-5 py-2 rounded-full bg-primary text-white font-medium transition-all">
+        <div class="flex flex-wrap justify-center gap-3" id="category-filters">
+          <button
+            data-category="all"
+            class="category-btn active px-5 py-2 rounded-full bg-primary text-white font-medium transition-all"
+          >
             All Posts
           </button>
           {categories.map(category => (
-            <button class="px-5 py-2 rounded-full bg-box-bg border border-box-border text-heading-3 hover:border-primary hover:text-primary transition-all font-medium">
+            <button
+              data-category={category}
+              class="category-btn px-5 py-2 rounded-full bg-box-bg border border-box-border text-heading-3 hover:border-primary hover:text-primary transition-all font-medium"
+            >
               {category}
             </button>
           ))}
@@ -52,9 +61,9 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))];
     <!-- Blog Posts Grid -->
     <section class="relative py-8">
       <Container className="max-w-6xl mx-auto">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-posts-grid">
           {blogPosts.map((post) => (
-            <a href={`/blog/${post.slug}`} class="group flex flex-col h-full rounded-3xl bg-box-bg border border-box-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-box-shadow">
+            <a href={`/blog/${post.slug}`} class="blog-post-card group flex flex-col h-full rounded-3xl bg-box-bg border border-box-border overflow-hidden hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-box-shadow" data-category={post.data.category}>
               <!-- Image -->
               <div class="relative aspect-video overflow-hidden">
                 <img
@@ -145,4 +154,49 @@ const categories = [...new Set(blogPosts.map(post => post.data.category))];
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  .category-btn.active {
+    background-color: rgb(var(--primary));
+    color: white;
+    border-color: rgb(var(--primary));
+  }
 </style>
+
+<script>
+  // Category filtering functionality
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  const blogCards = document.querySelectorAll('.blog-post-card');
+
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      categoryButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active class to clicked button
+      button.classList.add('active');
+
+      const selectedCategory = button.getAttribute('data-category');
+
+      // Filter blog cards
+      blogCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+          card.style.display = 'flex';
+          // Add fade-in animation
+          card.style.animation = 'fadeIn 0.3s ease-in-out';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Add fadeIn keyframes
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  `;
+  document.head.appendChild(style);
+</script>

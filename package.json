@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.6.0",
     "@tailwindcss/vite": "^4.1.5",
     "astro": "^5.7.12",

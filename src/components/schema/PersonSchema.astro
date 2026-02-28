@@ -1,0 +1,51 @@
+---
+/**
+ * PersonSchema.astro - Person Schema.org structured data
+ * Generates Person schema for team members, authors, and founders
+ */
+
+interface Props {
+  name: string;
+  jobTitle?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  sameAs?: string[];
+  worksFor?: {
+    name: string;
+    url?: string;
+  };
+}
+
+const {
+  name,
+  jobTitle,
+  description,
+  image,
+  url,
+  sameAs = [],
+  worksFor,
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name,
+  ...(jobTitle && { jobTitle }),
+  ...(description && { description }),
+  ...(image && { image }),
+  ...(url && { url }),
+  ...(sameAs.length > 0 && { sameAs }),
+  ...(worksFor && {
+    worksFor: {
+      "@type": "Organization",
+      ...worksFor,
+    },
+  }),
+};
+---
+
+<script
+  set:html={JSON.stringify(schema)}
+  type="application/ld+json"
+/>

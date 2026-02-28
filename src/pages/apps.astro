@@ -3,13 +3,42 @@ import Layout from '../layouts/Layout.astro';
 import Container from '../components/shared/Container.astro';
 import Paragraph from '../components/shared/Paragraph.astro';
 import Button from '../components/shared/Button.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SoftwareApplicationSchema from '../components/schema/SoftwareApplicationSchema.astro';
 import { shopifyApps } from '../utils/data.ts';
 
-const seoDescription = "Shopify Apps by Infinite.agency - Vision-Tag for AI alt text generation, Answer Rank for AI search engine optimization, and CoOp Kit for multi-vendor marketplaces.";
+const seoDescription = "Shopify apps London: Vision-Tag (AI alt text), Answer Rank (AI SEO), CoOp Kit (multi-vendor). Built by Infinite.agency experts.";
 ---
 
 <Layout title="Shopify Apps" description={seoDescription}>
+  <!-- SoftwareApplication Schemas -->
+  {shopifyApps.map((app) => (
+    <SoftwareApplicationSchema
+      name={app.name}
+      description={app.description}
+      applicationCategory="BusinessApplication"
+      operatingSystem="Shopify"
+      offers={{
+        price: "Request Pricing",
+        priceCurrency: "GBP"
+      }}
+      url={`https://infinite.agency/apps#${app.slug}`}
+      image="/images/og-image.jpg"
+      author={{
+        name: "Infinite.agency",
+        url: "https://infinite.agency"
+      }}
+      publisher={{
+        name: "Infinite.agency",
+        url: "https://infinite.agency"
+      }}
+      featureList={app.features}
+    />
+  ))}
+
   <main class="flex flex-col section-gap-y overflow-hidden">
+    <Breadcrumbs currentPage="Shopify Apps" />
+
     <!-- Hero Section -->
     <section class="relative hero-padding-top hero-padding-bottom">
       <Container className="flex flex-col items-center text-center max-w-4xl mx-auto">

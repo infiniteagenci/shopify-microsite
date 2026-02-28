@@ -4,16 +4,53 @@ import Container from "../components/shared/Container.astro";
 import Paragraph from "../components/shared/Paragraph.astro";
 import Button from "../components/shared/Button.astro";
 import Title from "../components/shared/Title.astro";
+import FAQSchema from "../components/schema/FAQSchema.astro";
+import BreadcrumbListSchema from "../components/schema/BreadcrumbListSchema.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 const seoDescription =
-    "Get a comprehensive Shopify store audit covering growth opportunities, technical performance, and strategic roadmap. London-based experts with 25+ years eCommerce experience.";
+    "Shopify store audit £25 by London experts. Technical health, SEO, UX review + growth roadmap. 25+ years experience. Limited offer.";
+
+// FAQs for Schema
+const faqs = [
+    {
+        question: "How long does the audit take?",
+        answer: "We complete most audits within 3-5 business days. You'll receive your comprehensive report and can then schedule a video call to discuss the findings."
+    },
+    {
+        question: "What Shopify plans do you work with?",
+        answer: "We work with stores on all plans—from Basic Shopify to Shopify Plus. Our audit methodology adapts to your store's scale and complexity."
+    },
+    {
+        question: "Do I need to implement the recommendations myself?",
+        answer: "The report includes clear, actionable steps you can follow. If you'd prefer, we can also handle the implementation for you at competitive rates."
+    },
+    {
+        question: "What if I'm on a different platform?",
+        answer: "This audit is specifically for Shopify stores. If you're on a different platform, get in touch and we can discuss alternative services."
+    }
+];
+
+// Breadcrumb items for Schema
+const breadcrumbs = [
+    { name: "Home", url: "https://infinite.agency/" },
+    { name: "Shopify Store Audit", url: "https://infinite.agency/audit" }
+];
 ---
 
 <Layout
     title="Shopify Store Audit & Growth Strategy"
     description={seoDescription}
 >
+    <!-- FAQ Schema for FAQ section -->
+    <FAQSchema faqs={faqs} />
+
+    <!-- BreadcrumbList Schema -->
+    <BreadcrumbListSchema items={breadcrumbs} />
+
     <main class="flex flex-col">
+        <Breadcrumbs currentPage="Shopify Store Audit" />
+
         <!-- Hero Section -->
         <section class="relative pt-32 lg:pt-40 pb-20 overflow-hidden">
             <div
