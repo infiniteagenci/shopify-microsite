@@ -1,0 +1,507 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Container from "../../../components/shared/Container.astro";
+import Paragraph from "../../../components/shared/Paragraph.astro";
+import Title from "../../../components/shared/Title.astro";
+import FAQSchema from "../../../components/schema/FAQSchema.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+
+const seoDescription =
+    "Glow Shopify theme documentation: how to customise your logo, colours, fonts, homepage sections, featured products, before/after slider, countdown timer and product page features.";
+
+const faqs = [
+    {
+        question: "Do I need to edit code to customise the Glow theme?",
+        answer: "No. Every customisation covered in this documentation — logo, colours, typography, homepage sections, featured products, countdown timers and more — is done through the Shopify theme editor, which you open from Online Store > Themes > Customise in your Shopify admin."
+    },
+    {
+        question: "How do I change which products appear in the featured products section?",
+        answer: "The Glow Featured Products section pulls products from a collection. Create or choose a collection in your Shopify admin (Products > Collections), then in the theme editor select the section and pick that collection under Collection. Use Products to show to control how many appear."
+    },
+    {
+        question: "Where do I set the free shipping threshold?",
+        answer: "In the theme editor, open Theme settings > Premium theme and enter your threshold in the Free shipping threshold field. The progress bar in the cart drawer updates automatically."
+    },
+    {
+        question: "How do I update the before and after images?",
+        answer: "Add or select the Before/after section on your homepage, then set the Before image and After image in the section settings. You can also rename the Before and After labels and drag the initial divider position."
+    }
+];
+
+const toc = [
+    { id: "getting-started", label: "Getting started" },
+    { id: "logo-favicon", label: "Logo & favicon" },
+    { id: "colours", label: "Colours & gradients" },
+    { id: "typography", label: "Typography" },
+    { id: "layout-controls", label: "Layout & global controls" },
+    { id: "homepage-sections", label: "Homepage sections" },
+    { id: "featured-products", label: "Setting featured products" },
+    { id: "countdown", label: "Countdown timer" },
+    { id: "before-after", label: "Before/after slider" },
+    { id: "product-page", label: "Product page features" },
+    { id: "navigation-search", label: "Navigation & search" },
+    { id: "social-brand", label: "Social & brand info" }
+];
+---
+
+<Layout title="Glow Theme Documentation — Customisation Guide" description={seoDescription} type="article">
+    <FAQSchema faqs={faqs} />
+
+    <main class="flex flex-col">
+        <Breadcrumbs currentPage="Glow Documentation" />
+
+        <!-- Hero -->
+        <section class="relative pt-32 lg:pt-40 pb-16 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-transparent to-amber-500/5"></div>
+            <Container className="relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <span class="inline-block px-4 py-2 rounded-full bg-rose-100 text-rose-600 text-sm font-semibold mb-6">
+                        Documentation · Glow v1.1.0
+                    </span>
+                    <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1 mb-6">
+                        How to customise the <span class="text-gradient-brand">Glow theme</span
+                        >
+                    </h1>
+                    <Paragraph className="text-xl max-w-3xl mx-auto">
+                        A practical guide to making Glow yours: update the logo
+                        and images, match your brand colours and fonts, set
+                        featured products, and configure every homepage section
+                        — all from the Shopify theme editor, no code required.
+                    </Paragraph>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Content -->
+        <section class="relative py-12">
+            <Container className="max-w-3xl mx-auto">
+                <!-- TOC -->
+                <nav class="box mb-12" aria-label="Table of contents">
+                    <h2 class="font-semibold text-heading-1 mb-3">
+                        On this page
+                    </h2>
+                    <ol class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+                        {toc.map((item, i) => (
+                            <li>
+                                <a
+                                    href={`#${item.id}`}
+                                    class="text-heading-3 hover:text-primary transition-colors"
+                                >
+                                    {i + 1}. {item.label}
+                                </a>
+                            </li>
+                        ))}
+                    </nav>
+                </nav>
+
+                <div class="space-y-16">
+                    <!-- Getting started -->
+                    <div id="getting-started">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            1. Getting started
+                        </h2>
+                        <p class="text-heading-3 mb-4">
+                            Glow is a Shopify Online Store 2.0 theme — every
+                            layout is built from JSON templates and sections you
+                            edit visually. Open the editor from your Shopify
+                            admin: <strong class="text-heading-1">Online Store → Themes → Customise</strong>.
+                        </p>
+                        <p class="text-heading-3">
+                            The editor has two panels: <strong class="text-heading-1">Theme settings</strong>
+                            (the paintbrush icon — global options like colours,
+                            fonts and spacing that apply site-wide) and the
+                            section list (per-page sections and their blocks).
+                            Start with Theme settings to set your brand, then
+                            arrange sections per page.
+                        </p>
+                    </div>
+
+                    <!-- Logo & favicon -->
+                    <div id="logo-favicon">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            2. Update your logo & favicon
+                        </h2>
+                        <p class="text-heading-3 mb-4">
+                            Go to <strong class="text-heading-1">Theme settings → Logo</strong>:
+                        </p>
+                        <ul class="space-y-2 text-heading-3 list-disc pl-6">
+                            <li>
+                                <strong class="text-heading-1">Logo</strong> —
+                                upload your logo image. Use a transparent PNG or
+                                SVG at 2× the display size for crisp rendering
+                                on retina screens.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Logo width</strong> —
+                                a slider from 50–300px (default 100px). Keep the
+                                header logo under ~180px so the navigation
+                                breathes on desktop.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Favicon</strong> —
+                                a square 32×32px or 64×64px PNG/SVG shown in
+                                browser tabs. This is also what AI assistants and
+                                search engines show next to your brand.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Colours -->
+                    <div id="colours">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            3. Set your colours & gradients
+                        </h2>
+                        <p class="text-heading-3 mb-4">
+                            Under <strong class="text-heading-1">Theme settings → Colours</strong> you
+                            control the scheme used across every section:
+                        </p>
+                        <ul class="space-y-2 text-heading-3 list-disc pl-6">
+                            <li>
+                                <strong class="text-heading-1">Accent 1 & Accent 2</strong> —
+                                your primary brand colours, with optional gradient
+                                variants for each.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Background 1 & Background 2</strong> —
+                                the two page backgrounds sections alternate
+                                between (Glow's demo alternates them to create
+                                rhythm down the homepage).
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Text, buttons & outline buttons</strong> —
+                                label colours for solid and secondary buttons.
+                            </li>
+                        </ul>
+                        <p class="text-heading-3 mt-4">
+                            Every section also has a <strong class="text-heading-1">Colour scheme</strong>
+                            dropdown, so you can flip individual sections between
+                            schemes without touching global settings.
+                        </p>
+                    </div>
+
+                    <!-- Typography -->
+                    <div id="typography">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            4. Typography
+                        </h2>
+                        <p class="text-heading-3">
+                            Under <strong class="text-heading-1">Theme settings → Typography</strong>,
+                            pick a heading font and body font from Shopify's font
+                            library (or upload your own), then scale the whole
+                            site with the <strong class="text-heading-1">heading scale</strong> and
+                            <strong class="text-heading-1">body scale</strong> sliders.
+                            Beauty brands typically pair a serif or
+                            high-contrast display heading font with a clean
+                            sans-serif body — the demo uses exactly this
+                            pattern.
+                        </p>
+                    </div>
+
+                    <!-- Layout & global controls -->
+                    <div id="layout-controls">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            5. Layout & global controls
+                        </h2>
+                        <ul class="space-y-3 text-heading-3">
+                            <li>
+                                <strong class="text-heading-1">Layout</strong> —
+                                page width, spacing between sections, and grid
+                                gaps.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Buttons, inputs, cards & popups</strong> —
+                                border thickness, corner radius and shadow for
+                                every interactive element, so the whole store
+                                stays visually consistent.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Product, collection & blog cards</strong> —
+                                card style, image padding, text alignment and
+                                colour scheme per card type.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Badges</strong> —
+                                badge position, corner radius, and colour
+                                schemes for sale and sold-out badges.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Homepage sections -->
+                    <div id="homepage-sections">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            6. Building the homepage
+                        </h2>
+                        <p class="text-heading-3 mb-6">
+                            The demo homepage stacks 13 sections. In the editor,
+                            click <strong class="text-heading-1">Add section</strong> to insert any of
+                            them, drag to reorder, and use each section's padding
+                            controls to tune vertical rhythm. The four Glow
+                            signature sections work like this:
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="box">
+                                <h3 class="font-semibold text-heading-1 mb-2">
+                                    Glow Featured Products
+                                </h3>
+                                <p class="text-heading-3 text-sm">
+                                    Choose a <strong>Collection</strong>, set
+                                    <strong>Products to show</strong> (the demo uses 6),
+                                    columns per row, image ratio, and toggle
+                                    vendor, rating, secondary image on hover and
+                                    quick add. Add a description and a
+                                    "View all" link style to finish.
+                                </p>
+                            </div>
+                            <div class="box">
+                                <h3 class="font-semibold text-heading-1 mb-2">
+                                    Glow Ingredients
+                                </h3>
+                                <p class="text-heading-3 text-sm">
+                                    Set the title and subheading, then add one
+                                    <strong>ingredient</strong> block per active —
+                                    each has an icon, title and description
+                                    (e.g. "Signal peptides", "Hyaluronic acid",
+                                    "Niacinamide"). Control columns per row for
+                                    desktop and mobile.
+                                </p>
+                            </div>
+                            <div class="box">
+                                <h3 class="font-semibold text-heading-1 mb-2">
+                                    Glow Results
+                                </h3>
+                                <p class="text-heading-3 text-sm">
+                                    Each <strong>result</strong> block shows a
+                                    big <strong>stat</strong> (e.g. "94%"), a
+                                    label ("saw improved hydration") and an
+                                    optional description. Reference your study
+                                    or review data in the subheading for
+                                    credibility.
+                                </p>
+                            </div>
+                            <div class="box">
+                                <h3 class="font-semibold text-heading-1 mb-2">
+                                    Glow Routine
+                                </h3>
+                                <p class="text-heading-3 text-sm">
+                                    Add numbered <strong>step</strong> blocks —
+                                    title and description each — to present your
+                                    products as a ritual: Cleanse, Treat,
+                                    Hydrate. Three to five steps reads best.
+                                </p>
+                            </div>
+                            <div class="box">
+                                <h3 class="font-semibold text-heading-1 mb-2">
+                                    Testimonials, trust badges & lookbook
+                                </h3>
+                                <p class="text-heading-3 text-sm">
+                                    Testimonials use blocks with an image, quote,
+                                    author, subheading and star rating. Trust
+                                    badges and the lookbook are configured with
+                                    images and captions directly in the section
+                                    settings.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured products -->
+                    <div id="featured-products">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            7. Setting your featured products
+                        </h2>
+                        <ol class="space-y-3 text-heading-3 list-decimal pl-6">
+                            <li>
+                                In your Shopify admin, go to
+                                <strong class="text-heading-1">Products → Collections</strong> and
+                                create a collection (e.g. "Featured"). Choose
+                                <em>automated</em> conditions — like tag or
+                                product type — so it updates itself, or pick
+                                products manually.
+                            </li>
+                            <li>
+                                In the theme editor, select the
+                                <strong class="text-heading-1">Glow Featured Products</strong>
+                                section on the homepage.
+                            </li>
+                            <li>
+                                Under <strong>Collection</strong>, select your
+                                collection. Set <strong>Products to show</strong> and
+                                <strong>Columns on desktop</strong> (3 works well
+                                for six products).
+                            </li>
+                            <li>
+                                Toggle <strong>Quick add</strong> to let shoppers
+                                add from the card, and pick an image ratio —
+                                portrait suits skincare packaging.
+                            </li>
+                        </ol>
+                        <p class="text-heading-3 mt-4">
+                            The same collection-picker pattern powers
+                            <strong class="text-heading-1">Featured collection</strong>,
+                            the cart drawer's recommendation collection, and the
+                            mega menu — set them once and they stay in sync.
+                        </p>
+                    </div>
+
+                    <!-- Countdown -->
+                    <div id="countdown">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            8. Countdown timer
+                        </h2>
+                        <p class="text-heading-3">
+                            Add the <strong class="text-heading-1">Countdown timer</strong> section,
+                            write a heading and subheading, then set the
+                            <strong>End date</strong> and <strong>Timezone</strong> — the
+                            timer counts down live. Customise the day/hour/minute
+                            labels, write an <strong>expired message</strong> for
+                            when the deadline passes, and optionally add a button
+                            with a link. Use it for launches, flash sales and
+                            limited batches.
+                        </p>
+                    </div>
+
+                    <!-- Before/after -->
+                    <div id="before-after">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            9. Before/after slider
+                        </h2>
+                        <p class="text-heading-3">
+                            Add the <strong class="text-heading-1">Before/after</strong> section and
+                            upload two images — <strong>Before image</strong> and
+                            <strong>After image</strong> — plus their labels. Drag
+                            the <strong>initial position</strong> slider to set
+                            where the divider starts (50% is the demo default).
+                            For best results use the same crop, lighting and
+                            framing in both images; shoppers read mismatches as
+                            manipulation.
+                        </p>
+                    </div>
+
+                    <!-- Product page -->
+                    <div id="product-page">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            10. Product page features
+                        </h2>
+                        <p class="text-heading-3 mb-4">
+                            Under <strong class="text-heading-1">Theme settings → Premium theme</strong>:
+                        </p>
+                        <ul class="space-y-2 text-heading-3 list-disc pl-6">
+                            <li>
+                                <strong class="text-heading-1">Free shipping threshold</strong> —
+                                enter an amount to activate the progress bar in
+                                the cart drawer.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Stock counter</strong> —
+                                enable it and set the threshold below which the
+                                "only X left" urgency message appears.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Sticky add-to-cart (mobile)</strong> —
+                                keeps the buy button visible while scrolling long
+                                product pages on phones.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Sale & sold-out badge text</strong> —
+                                customise the wording shown on product cards.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Size guide page</strong> —
+                                pick a page from your admin to open in the size
+                                guide modal on product pages.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Back to top</strong> —
+                                adds the floating back-to-top button.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Navigation & search -->
+                    <div id="navigation-search">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            11. Navigation, mega menu & search
+                        </h2>
+                        <p class="text-heading-3 mb-4">
+                            Structure menus in <strong class="text-heading-1">Online Store → Navigation</strong>.
+                            Glow's header turns any menu item with a submenu into
+                            a <strong class="text-heading-1">mega menu</strong> panel —
+                            organise collections under a parent item and it just
+                            works, with a drawer version on mobile.
+                        </p>
+                        <p class="text-heading-3">
+                            Under <strong class="text-heading-1">Theme settings → Search input</strong>,
+                            predictive search is on by default with toggles for
+                            showing vendor and price in the results. Under
+                            <strong class="text-heading-1">Cart</strong>, choose between the
+                            drawer and page cart types, and whether to show
+                            vendors and a cart note.
+                        </p>
+                    </div>
+
+                    <!-- Social & brand -->
+                    <div id="social-brand">
+                        <h2 class="text-2xl font-bold text-heading-1 mb-4">
+                            12. Social links & brand information
+                        </h2>
+                        <p class="text-heading-3">
+                            <strong class="text-heading-1">Theme settings → Social media</strong>
+                            takes your profile URLs — Facebook, Instagram,
+                            YouTube, TikTok, X/Twitter, Snapchat, Pinterest,
+                            Tumblr and Vimeo — and renders the icons in the
+                            footer. Under <strong class="text-heading-1">Brand information</strong>,
+                            add a headline, description and image that Shopify
+                            uses across the storefront and meta tags.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- FAQ -->
+        <section class="relative py-20">
+            <Container className="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Frequently Asked Questions</Title>
+                </div>
+                <div class="space-y-6">
+                    {faqs.map((faq) => (
+                        <div class="box">
+                            <h3 class="font-semibold text-heading-1 mb-2">
+                                {faq.question}
+                            </h3>
+                            <p class="text-heading-3">{faq.answer}</p>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+
+        <!-- CTA -->
+        <section class="relative pb-20">
+            <Container className="max-w-4xl mx-auto text-center">
+                <div class="cta-box">
+                    <h2 class="text-3xl/tight sm:text-4xl/tight font-bold text-heading-1 mb-4">
+                        Want us to do it for you?
+                    </h2>
+                    <Paragraph className="text-lg mb-8">
+                        We built Glow, so we can set it up, load your content and
+                        tune every section for conversion and AI search — or
+                        customise the code itself when you need something
+                        that's not in the editor.
+                    </Paragraph>
+                    <a
+                        href="https://forms.gle/f4VL7etjU2psfh8o9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black"
+                    >
+                        Talk to the Glow Team
+                    </a>
+                </div>
+            </Container>
+        </section>
+    </main>
+</Layout>

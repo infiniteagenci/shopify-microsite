@@ -9,7 +9,7 @@ import { glob } from "glob";
 
 const BUILD_DIR = "./dist";
 const MARKDOWN_DIR = "./dist/md";
-const SITEMAP_FILE = "./dist/sitemap-0.xml";
+const SITEMAP_FILE = "./dist/sitemap.xml";
 
 const pages = [
   {
@@ -215,6 +215,217 @@ Perfect for producer co-ops, artisan collectives, and boutique vendor groups.
 ## Contact Us
 
 Need a custom Shopify app? Our London development team can build custom solutions. Visit https://infinite.agency.`,
+  },
+  {
+    path: "/themes",
+    title: "Shopify Themes by Infinite Agency",
+    description:
+      "Niche Shopify themes built by Infinite Agency. Glow — a beauty & skincare Shopify theme with bespoke sections and a built-in conversion toolkit.",
+    content: `# Shopify Themes by Infinite Agency
+
+We've launched 100+ Shopify stores, and we noticed general-purpose themes force niche brands into generic layouts. So we build our own line of niche Shopify themes — designed around how each niche actually sells.
+
+## Glow — Beauty & Skincare Shopify Theme
+
+Glow is a Shopify Online Store 2.0 theme built specifically for beauty and skincare brands. Full details: https://shopify.infiniteagenci.com/themes/glow
+
+**Key Features:**
+- Four bespoke sections: Glow Ingredients, Glow Results, Glow Routine, Glow Featured Products
+- Before/after slider, trust badges, testimonials, lookbook, countdown timer
+- Wishlist with dedicated page, sticky add-to-cart, cart drawer, predictive search
+- Stock urgency messaging, free shipping progress bar, size guide modal
+- 170+ theme editor settings including colour schemes with gradient support
+- Country & language selectors for international selling
+- Clean vanilla Liquid, CSS & JavaScript — no heavy frameworks
+
+## FAQ
+
+### What Shopify themes does Infinite Agency build?
+We design and maintain our own line of niche Shopify themes. The first is Glow — a Shopify Online Store 2.0 theme built specifically for beauty and skincare brands.
+
+### Can you customise a theme for my brand?
+Yes. Because we build the themes ourselves, we can tailor any of them end-to-end — new sections, brand design, integrations and AI-search optimisation — or build a fully bespoke theme on the same foundation.
+
+## Contact Us
+
+Want Glow on your store, or a bespoke theme built from scratch? Visit https://infinite.agency to get started.`,
+  },
+  {
+    path: "/themes/glow/documentation",
+    title: "Glow Theme Documentation — Customisation Guide",
+    description:
+      "How to customise the Glow Shopify theme: logo, colours, typography, homepage sections, featured products, countdown timer, before/after slider and product page features.",
+    content: `# Glow Theme Documentation — Customisation Guide
+
+A practical guide to customising the Glow Shopify theme: update the logo and images, match your brand colours and fonts, set featured products, and configure every homepage section — all from the Shopify theme editor, no code required.
+
+## Getting started
+
+Open the editor from your Shopify admin: Online Store > Themes > Customise. Theme settings (paintbrush icon) hold global options — colours, fonts, spacing. The section list edits per-page sections and blocks.
+
+## Update your logo & favicon
+
+Theme settings > Logo: upload your logo (transparent PNG or SVG at 2x display size), set logo width (50-300px, default 100px) and add a square 32x32px or 64x64px favicon.
+
+## Set your colours & gradients
+
+Theme settings > Colours: Accent 1 and Accent 2 (with optional gradients), Background 1 and 2 (page backgrounds sections alternate between), text and button label colours. Every section also has its own colour scheme dropdown.
+
+## Typography
+
+Theme settings > Typography: pick heading and body fonts from Shopify's font library or upload your own, then scale globally with the heading and body scale sliders.
+
+## Layout & global controls
+
+- Layout: page width, section spacing, grid gaps
+- Buttons, inputs, cards, popups: border, radius, shadow controls
+- Product, collection and blog cards: style, image padding, alignment, colour scheme
+- Badges: position, radius, sale and sold-out colour schemes
+
+## Building the homepage
+
+The demo homepage stacks 13 sections. Use Add section, drag to reorder, and tune padding per section.
+
+- **Glow Featured Products**: choose a Collection, set products to show (demo uses 6), columns, image ratio, quick add, vendor, rating and "View all" style
+- **Glow Ingredients**: ingredient blocks with icon, title and description (e.g. Signal peptides, Hyaluronic acid, Niacinamide)
+- **Glow Results**: result blocks with a stat (e.g. "94%"), a label ("saw improved hydration") and description
+- **Glow Routine**: numbered step blocks (Cleanse, Treat, Hydrate)
+- **Testimonials**: blocks with image, quote, author, subheading and star rating
+- **Trust badges & Lookbook**: configured with images and captions in section settings
+
+## Setting your featured products
+
+1. In Shopify admin, create a collection under Products > Collections (automated by tag, or manual)
+2. In the theme editor, select the Glow Featured Products section
+3. Pick your collection under Collection; set Products to show and Columns on desktop
+4. Toggle quick add and pick an image ratio (portrait suits skincare)
+
+The same collection-picker pattern powers Featured collection, the cart drawer's recommendation collection and the mega menu.
+
+## Countdown timer
+
+Add the Countdown timer section, set heading, subheading, End date and Timezone. Customise day/hour/minute labels, the expired message, and an optional button with link.
+
+## Before/after slider
+
+Add the Before/after section, upload Before image and After image with labels, and set the initial divider position (default 50%). Use matching crops and lighting in both images.
+
+## Product page features
+
+Theme settings > Premium theme:
+
+- Free shipping threshold: activates the cart drawer progress bar
+- Stock counter and threshold: "only X left" urgency messaging
+- Sticky add-to-cart on mobile
+- Custom sale and sold-out badge text
+- Size guide page: pick a page to open in the size guide modal
+- Back to top button
+
+## Navigation, mega menu & search
+
+Menus are structured in Online Store > Navigation; any menu item with a submenu becomes a mega menu panel (drawer on mobile). Theme settings > Search input controls predictive search (vendor and price toggles). Theme settings > Cart chooses drawer vs page cart, vendor display and cart notes.
+
+## Social links & brand information
+
+Theme settings > Social media takes profile URLs for Facebook, Instagram, YouTube, TikTok, X/Twitter, Snapchat, Pinterest, Tumblr and Vimeo. Brand information holds the headline, description and image used across the storefront and meta tags.
+
+## FAQ
+
+### Do I need to edit code to customise the Glow theme?
+No. Every customisation in this guide is done through the Shopify theme editor.
+
+### How do I change the featured products?
+Create a collection in your admin, then select it in the Glow Featured Products section under Collection.
+
+### Where do I set the free shipping threshold?
+Theme settings > Premium theme > Free shipping threshold.
+
+## Contact Us
+
+Want Glow set up and tuned for you? Visit https://infinite.agency to get started.`,
+  },
+  {
+    path: "/themes/glow",
+    title: "Glow — Shopify Theme for Beauty & Skincare Brands",
+    description:
+      "Glow is a Shopify Online Store 2.0 theme built for beauty & skincare brands: ingredient, results and routine sections, before/after slider, wishlist, sticky add-to-cart and 170+ settings.",
+    content: `# Glow — Shopify Theme for Beauty & Skincare Brands
+
+Glow is a Shopify Online Store 2.0 theme designed around how beauty and skincare customers actually buy: ingredients, results, routines and trust. Bespoke sections, a full conversion toolkit and 170+ editor settings — no code required. Built and maintained by Infinite Agency. Version 1.1.0.
+
+## Why Glow Was Built
+
+General-purpose Shopify themes force beauty brands into generic layouts. Glow starts from the merchandising patterns skincare customers expect — and makes every one of them a drag-and-drop section.
+
+## The Signature Glow Sections
+
+- **Glow Ingredients** — showcase hero ingredients like peptides, hyaluronic acid or niacinamide with icons, imagery and short proof copy.
+- **Glow Results** — present clinical claims and measurable outcomes in a credible, scannable format.
+- **Glow Routine** — present products as an AM/PM ritual or multi-step regimen, guiding shoppers from single-product browsing to full-routine baskets.
+- **Glow Featured Products** — a beauty-tuned featured products section with image-led cards and variant display.
+
+Plus every classic section a storefront needs: image banner, slideshow, image with text, multicolumn, collage, collection list, featured collection, featured product, featured blog, video, collapsible content (FAQ), newsletter, contact form, lookbook, before/after slider and testimonials.
+
+## Built-in Conversion Toolkit
+
+- Before/after slider for visual proof
+- Countdown timer for launches and offers
+- Trust badges, testimonials and social proof sections
+- Wishlist with a dedicated wishlist page template
+- Sticky add-to-cart on product pages
+- Stock urgency messaging pulled from real Shopify inventory
+- Free shipping progress bar in the cart drawer
+- Slide-out cart drawer and predictive search
+- Size guide modal
+
+Most stores pay monthly for apps to add these features. Glow ships them natively — faster pages, no app conflicts, no subscription creep.
+
+## Design System & Customisation
+
+- 170+ editor settings: colours, gradients, typography pickers, spacing, per-section padding
+- Multiple colour schemes with gradient support
+- Online Store 2.0 JSON templates for products, collections, pages, blogs, cart and search
+- Country and language selectors with multiple locales for international selling
+
+## SEO & AI Search Built In
+
+- Dedicated meta-tags snippet handling canonical URLs, Open Graph and Twitter cards
+- Semantic HTML with a single H1 per page and logical heading hierarchy
+- Vanilla CSS and JavaScript — no heavy frameworks — for healthy Core Web Vitals
+- Accessibility statement template included
+- Clean product, article and breadcrumb structured data output for Google and AI answer engines like ChatGPT and Perplexity
+
+## Technical Specification
+
+- **Theme:** Glow (Peptides Glow), version 1.1.0
+- **Platform:** Shopify Online Store 2.0 (JSON templates)
+- **Niche:** Beauty, skincare, cosmetics, wellness
+- **Homepage:** 13 sections in the default demo layout
+- **Built with:** Vanilla Liquid, CSS & JavaScript
+- **Localisation:** Country & language selectors, multiple locales
+- **Accessibility:** Accessibility statement template, semantic markup
+
+## Who Glow Is For
+
+Perfect for skincare and peptide-led beauty brands, cosmetics, haircare, bodycare and wellness brands. Also works well for fragrance, beauty tools, men's grooming and any results-driven product brand.
+
+## FAQ
+
+### What is the Glow Shopify theme?
+Glow is a Shopify Online Store 2.0 theme built specifically for beauty and skincare brands, with four bespoke beauty sections plus a full conversion toolkit, all editable in the Shopify theme editor without code.
+
+### Is Glow only for skincare brands?
+Glow was designed around skincare merchandising patterns, but works equally well for cosmetics, haircare, wellness supplements, fragrance and any product brand that sells on visible results and trust.
+
+### Is the Glow theme good for SEO and AI search?
+Yes. Glow ships with canonical URLs, Open Graph and Twitter meta tags, semantic HTML, fast vanilla code, localisation support and clean structured data — markup that Google and AI answer engines can parse easily.
+
+### Can Infinite Agency customise Glow for my brand?
+Yes. Glow was built by our team, so we can tailor it end-to-end or build a fully bespoke theme on the same foundation.
+
+## Contact Us
+
+Want Glow on your store? Visit https://infinite.agency to get started.`,
   },
   {
     path: "/audit",
@@ -424,7 +635,7 @@ async function updateSitemap() {
   let sitemap = fs.readFileSync(SITEMAP_FILE, "utf-8");
 
   // Add markdown URLs to sitemap
-  const baseUrl = "https://infinite.agency";
+  const baseUrl = "https://shopify.infiniteagenci.com";
   const mdUrls = [
     "/md/",
     "/md/index.md",

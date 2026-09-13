@@ -1,0 +1,762 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/shared/Container.astro";
+import Paragraph from "../../components/shared/Paragraph.astro";
+import Title from "../../components/shared/Title.astro";
+import FAQSchema from "../../components/schema/FAQSchema.astro";
+import SoftwareApplicationSchema from "../../components/schema/SoftwareApplicationSchema.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const seoDescription =
+    "Glow is a Shopify theme built for beauty & skincare brands. Ingredient grids, before/after sliders, routines, wishlist, sticky add-to-cart and 170+ settings. Built by Infinite Agency.";
+
+const faqs = [
+    {
+        question: "What is the Glow Shopify theme?",
+        answer: "Glow is a Shopify Online Store 2.0 theme built specifically for beauty and skincare brands. It ships with four bespoke beauty sections — Glow Ingredients, Glow Results, Glow Routine and Glow Featured Products — plus a full conversion toolkit including before/after sliders, trust badges, countdown timers, wishlist, sticky add-to-cart and free-shipping progress bars. Every layout is editable in the Shopify theme editor with no code required."
+    },
+    {
+        question: "Is Glow only for skincare brands?",
+        answer: "Glow was designed around skincare and beauty merchandising patterns — ingredient breakdowns, clinical results, before/after proof and step-by-step routines — but the same structure works equally well for cosmetics, haircare, wellness supplements, fragrance and any product brand that sells on visible results and trust."
+    },
+    {
+        question: "Can I customise Glow without touching code?",
+        answer: "Yes. Glow exposes 170+ settings in the Shopify theme editor: colour schemes with gradient support, typography pickers, section-level spacing controls, and per-block content options for every section. Merchants can rebuild the entire homepage from the editor; developers still get clean, well-organised Liquid when custom work is needed."
+    },
+    {
+        question: "Is the Glow theme good for SEO and AI search?",
+        answer: "Glow ships with SEO fundamentals built in: canonical URLs, Open Graph and Twitter card meta tags via its meta-tags snippet, semantic HTML with a single H1 per page, fast vanilla CSS/JS without heavy libraries, localisation support for country and language, and an accessibility statement template. The result is clean crawlable markup that search engines and AI answer engines like ChatGPT and Perplexity can parse easily."
+    },
+    {
+        question: "Does Glow include wishlist and cart drawer features?",
+        answer: "Yes. Glow includes a native wishlist system with its own dedicated wishlist page template, a slide-out cart drawer, predictive search, a sticky add-to-cart button on product pages, stock urgency messaging, a size guide modal, and a free-shipping progress bar — features that typically require multiple paid apps on other themes."
+    },
+    {
+        question: "Can Infinite Agency customise Glow for my brand?",
+        answer: "Absolutely. Glow was built by our team, so we can tailor it end-to-end — new sections, custom integrations, app connections, copy structure and AI-search optimisation — or build a fully bespoke theme on the same foundation. Get in touch for a quote."
+    }
+];
+
+const signatureSections = [
+    {
+        name: "Glow Ingredients",
+        description: "A dedicated section for showcasing hero ingredients — like peptides, hyaluronic acid or niacinamide — with icons, imagery and short proof copy. Perfect for the 'what's inside' moment that decides skincare purchases."
+    },
+    {
+        name: "Glow Results",
+        description: "A results section for clinical claims and measurable outcomes — study numbers, satisfaction scores, timelines — structured so claims stay credible and scannable."
+    },
+    {
+        name: "Glow Routine",
+        description: "A step-by-step routine section that presents products as an AM/PM ritual or multi-step regimen, guiding shoppers from single-product browsing to full-routine baskets."
+    },
+    {
+        name: "Glow Featured Products",
+        description: "A beauty-tuned featured products section with image-led cards, variant display and quick buy, designed to match the visual language of the other Glow sections."
+    }
+];
+
+const conversionToolkit = [
+    "Before / after slider for visual proof",
+    "Countdown timer for launches & offers",
+    "Trust badges section",
+    "Testimonials & social proof",
+    "Lookbook gallery",
+    "Wishlist with dedicated page",
+    "Sticky add-to-cart on product pages",
+    "Stock urgency messaging",
+    "Free shipping progress bar",
+    "Slide-out cart drawer",
+    "Predictive search",
+    "Size guide modal"
+];
+
+const carouselSlides = [
+    {
+        src: "/images/glow/homepage-desktop.png",
+        alt: "Glow theme homepage for a peptide skincare brand",
+        caption: "Homepage — \"The Science of Glow\" hero, featured products and key actives"
+    },
+    {
+        src: "/images/glow/product-detail-desktop.png",
+        alt: "Glow theme product detail page with buy box and product information",
+        caption: "Product detail page — image gallery, variant picker and sticky add-to-cart"
+    },
+    {
+        src: "/images/glow/collection-peptides-desktop.png",
+        alt: "Glow theme collection page showing peptide products in a grid",
+        caption: "Collection pages — filterable product grid with wishlist hearts"
+    },
+    {
+        src: "/images/glow/feature-before-after-desktop.png",
+        alt: "Glow theme before and after results slider section",
+        caption: "Before/after slider — visual proof built into the homepage"
+    },
+    {
+        src: "/images/glow/feature-countdown-desktop.png",
+        alt: "Glow theme countdown timer section for launches and offers",
+        caption: "Countdown timer — urgency for launches and limited offers"
+    },
+    {
+        src: "/images/glow/feature-lookbook-desktop.png",
+        alt: "Glow theme lookbook gallery section",
+        caption: "Lookbook — shoppable image galleries"
+    },
+    {
+        src: "/images/glow/feature-testimonials-desktop.png",
+        alt: "Glow theme testimonials section with customer quotes",
+        caption: "Testimonials — social proof as a native section"
+    },
+    {
+        src: "/images/glow/feature-mega-menu-desktop.png",
+        alt: "Glow theme navigation mega menu",
+        caption: "Mega menu — organised navigation for large catalogues"
+    },
+    {
+        src: "/images/glow/feature-predictive-search-desktop.png",
+        alt: "Glow theme predictive search dropdown",
+        caption: "Predictive search — products and pages as shoppers type"
+    },
+    {
+        src: "/images/glow/mini-cart-desktop.png",
+        alt: "Glow theme slide-out cart drawer with free shipping progress",
+        caption: "Cart drawer — slide-out basket with free-shipping progress bar"
+    }
+];
+
+const specRows = [
+    ["Theme name", "Glow (Peptides Glow)"],
+    ["Version", "1.1.0"],
+    ["Platform", "Shopify Online Store 2.0 (JSON templates)"],
+    ["Niche", "Beauty, skincare, cosmetics, wellness"],
+    ["Homepage sections", "13 in the default demo layout"],
+    ["Bespoke sections", "Glow Ingredients, Glow Results, Glow Routine, Glow Featured Products"],
+    ["Theme editor settings", "170+ (colours, gradients, typography, spacing)"],
+    ["Built with", "Vanilla Liquid, CSS & JavaScript — no heavy frameworks"],
+    ["Localisation", "Country & language selectors, multiple locales"],
+    ["Accessibility", "Accessibility statement template, semantic markup"]
+];
+---
+
+<Layout title="Glow — Shopify Theme for Beauty & Skincare Brands" description={seoDescription} image="/images/glow/glow.png">
+    <FAQSchema faqs={faqs} />
+
+    <SoftwareApplicationSchema
+        name="Glow"
+        description="Glow is a Shopify Online Store 2.0 theme built for beauty and skincare brands, with bespoke ingredient, results and routine sections plus a full conversion toolkit."
+        applicationCategory="BusinessApplication"
+        operatingSystem="Shopify"
+        softwareVersion="1.1.0"
+        url={`${Astro.site}themes/glow`}
+        image={`${Astro.site}images/glow/glow.png`}
+        author={{ name: "Infinite Agency" }}
+        publisher={{ name: "Infinite Agency" }}
+        featureList={[
+            "Glow Ingredients section",
+            "Glow Results section",
+            "Glow Routine section",
+            "Before/after slider",
+            "Wishlist with dedicated page",
+            "Sticky add-to-cart",
+            "Free shipping progress bar",
+            "Cart drawer",
+            "Predictive search",
+            "170+ theme editor settings"
+        ]}
+    />
+
+    <main class="flex flex-col">
+        <Breadcrumbs currentPage="Glow" />
+
+        <!-- Hero -->
+        <section class="relative pt-32 lg:pt-40 pb-20 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-transparent to-amber-500/5"></div>
+            <Container className="relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <span class="inline-block px-4 py-2 rounded-full bg-rose-100 text-rose-600 text-sm font-semibold mb-6">
+                        Shopify Theme · Beauty & Skincare
+                    </span>
+                    <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1 mb-6">
+                        Glow — the Shopify theme built for <span class="text-gradient-brand">beauty brands</span
+                        >
+                    </h1>
+                    <Paragraph className="text-xl max-w-3xl mx-auto mb-10">
+                        Glow is a Shopify Online Store 2.0 theme designed
+                        around how beauty and skincare customers actually buy:
+                        ingredients, results, routines and trust. Bespoke
+                        sections, a full conversion toolkit and 170+ editor
+                        settings — no code required.
+                    </Paragraph>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="https://forms.gle/f4VL7etjU2psfh8o9"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black"
+                        >
+                            Get Glow for Your Store
+                        </a>
+                        <a
+                            href="#sections"
+                            class="btn-secondary inline-flex justify-center items-center px-8 py-4"
+                        >
+                            Explore the Sections
+                        </a>
+                    </div>
+                    <p class="text-sm text-heading-3 mt-6">
+                        Built and maintained by Infinite Agency · Version 1.1.0 ·
+                        <a
+                            href="/themes/glow/documentation"
+                            class="text-primary underline underline-offset-4 hover:opacity-80 transition-opacity"
+                        >Read the documentation</a
+                        >
+                    </p>
+                    <div
+                        class="mt-12 max-w-3xl mx-auto rounded-2xl overflow-hidden border border-box-border shadow-2xl shadow-rose-500/10"
+                    >
+                        <img
+                            src="/images/glow/glow.png"
+                            alt="Glow Shopify theme homepage for a peptide skincare brand"
+                            width="779"
+                            height="989"
+                            loading="eager"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Carousel -->
+        <section class="relative py-20 overflow-hidden" data-carousel>
+            <Container className="max-w-6xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <Title>See Glow in Action</Title>
+                    <Paragraph>
+                        Real screens from the theme, running on our peptide
+                        skincare demo store — every one of these layouts is a
+                        drag-and-drop section in the editor.
+                    </Paragraph>
+                </div>
+
+                <div class="relative">
+                    <div
+                        data-carousel-track
+                        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                        aria-label="Glow theme screenshots"
+                    >
+                        {carouselSlides.map((slide, i) => (
+                            <figure
+                                class="snap-center shrink-0 w-[85%] sm:w-[70%] md:w-[58%]"
+                            >
+                                <div
+                                    class="rounded-2xl overflow-hidden border border-box-border bg-box-bg aspect-[4/3]"
+                                >
+                                    <img
+                                        src={slide.src}
+                                        alt={slide.alt}
+                                        width="2000"
+                                        height="1920"
+                                        loading={i === 0 ? "eager" : "lazy"}
+                                        class="w-full h-full object-cover object-top"
+                                    />
+                                </div>
+                                <figcaption class="text-sm text-heading-3 text-center mt-3">
+                                    {slide.caption}
+                                </figcaption>
+                            </figure>
+                        ))}
+                    </div>
+
+                    <button
+                        data-carousel-prev
+                        aria-label="Previous screenshot"
+                        class="absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-body border border-box-border shadow-lg flex items-center justify-center text-heading-1 hover:text-primary transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+                        </svg>
+                    </button>
+                    <button
+                        data-carousel-next
+                        aria-label="Next screenshot"
+                        class="absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-body border border-box-border shadow-lg flex items-center justify-center text-heading-1 hover:text-primary transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="flex justify-center gap-2 mt-6">
+                    {carouselSlides.map((slide, i) => (
+                        <button
+                            data-carousel-dot
+                            aria-label={`Go to screenshot ${i + 1}`}
+                            class="w-2.5 h-2.5 rounded-full bg-box-border transition-colors data-[active]:bg-primary"
+                        ></button>
+                    ))}
+                </div>
+            </Container>
+        </section>
+
+        <!-- Why Glow -->
+        <section class="relative py-20">
+            <Container className="max-w-6xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <Title>Why We Built Glow</Title>
+                    <Paragraph>
+                        General-purpose Shopify themes force beauty brands into
+                        generic layouts. Glow starts from the merchandising
+                        patterns skincare customers expect — and makes every one
+                        of them a drag-and-drop section.
+                    </Paragraph>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Purpose-built sections
+                        </h3>
+                        <p class="text-heading-3">
+                            Ingredient grids, clinical results and routine
+                            builders aren't retrofitted blog layouts — they're
+                            native sections designed for skincare storytelling
+                            from day one.
+                        </p>
+                    </div>
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Conversion-first UX
+                        </h3>
+                        <p class="text-heading-3">
+                            Sticky add-to-cart, stock urgency, free-shipping
+                            progress and a cart drawer ship built in — features
+                            that usually mean stacking three or four paid apps
+                            on other themes.
+                        </p>
+                    </div>
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Fast, clean code
+                        </h3>
+                        <p class="text-heading-3">
+                            Vanilla Liquid, CSS and JavaScript with no heavy
+                            frameworks — which keeps Core Web Vitals, crawlability
+                            and AI-answer-engine readability exactly where they
+                            should be.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Signature sections -->
+        <section id="sections" class="relative py-20 bg-gradient-to-br from-rose-500/5 to-amber-500/5">
+            <Container className="max-w-6xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <Title>The Signature Glow Sections</Title>
+                    <Paragraph>
+                        Four bespoke sections you won't find in generic themes —
+                        each one mapped to a decision a skincare customer makes
+                        before checkout.
+                    </Paragraph>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    {signatureSections.map((section) => (
+                        <div class="box card-hover">
+                            <h3 class="text-xl font-bold text-heading-1 mb-3">
+                                {section.name}
+                            </h3>
+                            <p class="text-heading-3">{section.description}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div class="mt-16">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-heading-1 mb-8 text-center">
+                        Plus every classic section a storefront needs
+                    </h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                        {[
+                            "Image banner",
+                            "Slideshow",
+                            "Image with text",
+                            "Multicolumn",
+                            "Collage",
+                            "Collection list",
+                            "Featured collection",
+                            "Featured product",
+                            "Featured blog",
+                            "Video",
+                            "Collapsible content (FAQ)",
+                            "Newsletter & email signup",
+                            "Contact form",
+                            "Lookbook",
+                            "Before/after slider",
+                            "Testimonials"
+                        ].map((item) => (
+                            <div class="box text-center py-4 text-sm text-heading-2">
+                                {item}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Conversion toolkit -->
+        <section class="relative py-20">
+            <Container className="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <Title>A conversion toolkit, built in — not bolted on</Title>
+                        <Paragraph className="mb-6">
+                            Most stores pay monthly for apps to add these
+                            features. Glow ships them natively, which means
+                            faster pages, no app conflicts and no subscription
+                            creep.
+                        </Paragraph>
+                        <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+                            {conversionToolkit.map((item) => (
+                                <li class="flex items-start gap-2 text-heading-3">
+                                    <svg
+                                        class="w-5 h-5 text-primary shrink-0 mt-0.5"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"
+                                        ></path>
+                                    </svg>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3 class="text-xl font-bold text-heading-1 mb-4">
+                            Product page essentials
+                        </h3>
+                        <ul class="space-y-3 text-heading-3">
+                            <li>
+                                <strong class="text-heading-1">Sticky add-to-cart</strong> — the buy button follows shoppers down long product pages.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Stock urgency</strong> — low-inventory messaging that's pulled from real Shopify inventory levels.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Free shipping progress bar</strong> — nudges basket value toward your threshold in the cart drawer.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Size guide</strong> — a modal that answers fit questions before they become support tickets.
+                            </li>
+                            <li>
+                                <strong class="text-heading-1">Wishlist</strong> — a heart-to-save flow with its own dedicated wishlist page template.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Customisation -->
+        <section class="relative py-20 bg-gradient-to-br from-amber-500/5 to-rose-500/5">
+            <Container className="max-w-4xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <Title>Design System & Customisation</Title>
+                    <Paragraph>
+                        Glow gives merchants full visual control from the Shopify
+                        theme editor — and gives developers clean Liquid when
+                        custom work is needed.
+                    </Paragraph>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-8">
+                    <div class="box">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            170+ editor settings
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Colours, gradients, typography pickers, spacing and
+                            per-section padding — all configurable without code.
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            Colour schemes & gradients
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Multiple colour schemes with gradient support let you
+                            match brand palettes exactly, section by section.
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            JSON templates everywhere
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Online Store 2.0 JSON templates for products,
+                            collections, pages, blogs, cart and search — reorder
+                            any page from the editor.
+                        </p>
+                    </div>
+                    <div class="box">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            Sell internationally
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Country and language selectors, multiple locales and
+                            localisation-ready templates are included out of the
+                            box.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- SEO & AEO -->
+        <section class="relative py-20">
+            <Container className="max-w-6xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <Title>SEO & AI Search, Handled at the Theme Level</Title>
+                    <Paragraph>
+                        We optimise Shopify stores for Google and AI answer
+                        engines for a living — so Glow ships with that work
+                        already done.
+                    </Paragraph>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Clean meta & canonicals
+                        </h3>
+                        <p class="text-heading-3">
+                            Dedicated meta-tags snippet handles canonical URLs,
+                            Open Graph and Twitter cards for every template.
+                        </p>
+                    </div>
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Semantic structure
+                        </h3>
+                        <p class="text-heading-3">
+                            Logical heading hierarchy, semantic HTML and a single
+                            H1 per page make content unambiguous for crawlers and
+                            LLMs alike.
+                        </p>
+                    </div>
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Performance-friendly
+                        </h3>
+                        <p class="text-heading-3">
+                            No heavy JS frameworks — vanilla CSS and JavaScript
+                            keep Largest Contentful Paint and INP healthy.
+                        </p>
+                    </div>
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Accessibility ready
+                        </h3>
+                        <p class="text-heading-3">
+                            Ships with an accessibility statement template and
+                            accessible component patterns throughout.
+                        </p>
+                    </div>
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Localisation & hreflang
+                        </h3>
+                        <p class="text-heading-3">
+                            Multi-language and multi-country support built in, so
+                            international stores stay crawlable and correct.
+                        </p>
+                    </div>
+                    <div class="box card-hover">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">
+                            Structured data friendly
+                        </h3>
+                        <p class="text-heading-3">
+                            Product, article and breadcrumb markup output cleanly
+                            — the foundations AI engines like ChatGPT and
+                            Perplexity cite from.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Technical spec -->
+        <section class="relative py-20 bg-gradient-to-br from-rose-500/5 to-amber-500/5">
+            <Container className="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Technical Specification</Title>
+                </div>
+                <div class="box overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <tbody>
+                            {specRows.map(([label, value]) => (
+                                <tr class="border-b border-box-border last:border-b-0">
+                                    <th
+                                        scope="row"
+                                        class="py-3 pr-6 font-semibold text-heading-1 whitespace-nowrap align-top"
+                                    >
+                                        {label}
+                                    </th>
+                                    <td class="py-3 text-heading-3">{value}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Who it's for -->
+        <section class="relative py-20">
+            <Container className="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Who Glow Is For</Title>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-8">
+                    <div class="box card-hover">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            Perfect fit
+                        </h3>
+                        <ul class="space-y-2 text-heading-3">
+                            <li>• Skincare & peptide-led beauty brands</li>
+                            <li>• Cosmetics & colour brands</li>
+                            <li>• Haircare & bodycare</li>
+                            <li>• Wellness & supplement brands</li>
+                        </ul>
+                    </div>
+                    <div class="box card-hover">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            Also works well
+                        </h3>
+                        <ul class="space-y-2 text-heading-3">
+                            <li>• Fragrance & self-care</li>
+                            <li>• Beauty tools & devices</li>
+                            <li>• Men's grooming</li>
+                            <li>• Any results-driven product brand</li>
+                        </ul>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- FAQ -->
+        <section class="relative py-20">
+            <Container className="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Frequently Asked Questions</Title>
+                </div>
+                <div class="space-y-6">
+                    {faqs.map((faq) => (
+                        <div class="box">
+                            <h3 class="font-semibold text-heading-1 mb-2">
+                                {faq.question}
+                            </h3>
+                            <p class="text-heading-3">{faq.answer}</p>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+
+        <!-- CTA -->
+        <section class="relative py-20">
+            <Container className="max-w-4xl mx-auto text-center">
+                <div class="cta-box">
+                    <h2 class="text-3xl/tight sm:text-4xl/tight font-bold text-heading-1 mb-4">
+                        Ready to give your beauty brand Glow?
+                    </h2>
+                    <Paragraph className="text-lg mb-8">
+                        Talk to the team that built it. We'll set up Glow on your
+                        store, tailor the sections to your brand, and optimise
+                        the result for Google and AI search.
+                    </Paragraph>
+                    <a
+                        href="https://forms.gle/f4VL7etjU2psfh8o9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary glow-button inline-flex justify-center items-center px-8 py-4 text-black"
+                    >
+                        Get Glow for Your Store
+                    </a>
+                </div>
+            </Container>
+        </section>
+    </main>
+
+    <script>
+        const carousel = document.querySelector<HTMLElement>("[data-carousel]");
+        if (carousel) {
+            const track = carousel.querySelector<HTMLElement>(
+                "[data-carousel-track]",
+            )!;
+            const slides = Array.from(track.children) as HTMLElement[];
+            const prevBtn = carousel.querySelector("[data-carousel-prev]");
+            const nextBtn = carousel.querySelector("[data-carousel-next]");
+            const dots = Array.from(
+                carousel.querySelectorAll("[data-carousel-dot]"),
+            ) as HTMLElement[];
+
+            const setActive = (index: number) => {
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.setAttribute("data-active", "");
+                    } else {
+                        dot.removeAttribute("data-active");
+                    }
+                });
+            };
+
+            const goTo = (index: number) => {
+                const clamped = Math.max(
+                    0,
+                    Math.min(slides.length - 1, index),
+                );
+                track.scrollTo({
+                    left: slides[clamped].offsetLeft - track.offsetLeft,
+                    behavior: "smooth",
+                });
+            };
+
+            prevBtn?.addEventListener("click", () => {
+                const current = Math.round(
+                    (track.scrollLeft + track.offsetLeft) /
+                        (slides[0].offsetWidth + 24),
+                );
+                goTo(current - 1);
+            });
+
+            nextBtn?.addEventListener("click", () => {
+                const current = Math.round(
+                    (track.scrollLeft + track.offsetLeft) /
+                        (slides[0].offsetWidth + 24),
+                );
+                goTo(current + 1);
+            });
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener("click", () => goTo(i));
+            });
+
+            let scrollTimeout: ReturnType<typeof setTimeout>;
+            track.addEventListener("scroll", () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const index = Math.round(
+                        (track.scrollLeft + track.offsetLeft) /
+                            (slides[0].offsetWidth + 24),
+                    );
+                    setActive(Math.max(0, Math.min(slides.length - 1, index)));
+                }, 80);
+            });
+
+            setActive(0);
+        }
+    </script>
+</Layout>

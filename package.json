@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && node scripts/generate-markdown.js",
+    "build": "astro build && node scripts/generate-markdown.js && node scripts/generate-sitemap.js && cp public/sitemap.xml dist/sitemap.xml",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "astro build && wrangler pages deploy",
-    "generate-markdown": "node scripts/generate-markdown.js"
+    "generate-markdown": "node scripts/generate-markdown.js",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",

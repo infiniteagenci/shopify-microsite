@@ -1,0 +1,164 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/shared/Container.astro";
+import Paragraph from "../../components/shared/Paragraph.astro";
+import Title from "../../components/shared/Title.astro";
+import FAQSchema from "../../components/schema/FAQSchema.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const seoDescription =
+    "Shopify themes built by Infinite Agency. Glow — a beauty & skincare Shopify theme with bespoke ingredient, results and routine sections, plus a full conversion toolkit.";
+
+const faqs = [
+    {
+        question: "What Shopify themes does Infinite Agency build?",
+        answer: "We design and maintain our own line of niche Shopify themes. The first is Glow — a Shopify Online Store 2.0 theme built specifically for beauty and skincare brands, with bespoke sections for ingredients, results and routines plus a built-in conversion toolkit."
+    },
+    {
+        question: "How are your themes different from the Shopify Theme Store?",
+        answer: "Our themes start from a niche, not a blank grid. Glow is designed around how beauty and skincare customers actually shop — ingredient breakdowns, clinical results, before/after proof and routines — and it ships with features like wishlist, sticky add-to-cart and a free-shipping progress bar built in, so you don't need extra paid apps."
+    },
+    {
+        question: "Can you customise a theme for my brand?",
+        answer: "Yes. Because we build the themes ourselves, we can tailor any of them end-to-end — new sections, brand design, integrations and AI-search optimisation — or build a fully bespoke theme on the same foundation."
+    }
+];
+---
+
+<Layout title="Shopify Themes by Infinite Agency" description={seoDescription}>
+    <FAQSchema faqs={faqs} />
+
+    <main class="flex flex-col">
+        <Breadcrumbs currentPage="Shopify Themes" />
+
+        <!-- Hero -->
+        <section class="relative pt-32 lg:pt-40 pb-20 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-transparent to-amber-500/5"></div>
+            <Container className="relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <span class="inline-block px-4 py-2 rounded-full bg-rose-100 text-rose-600 text-sm font-semibold mb-6">
+                        Niche Shopify Themes
+                    </span>
+                    <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1 mb-6">
+                        Shopify themes built for <span class="text-gradient-brand">specific niches</span
+                        >
+                    </h1>
+                    <Paragraph className="text-xl max-w-3xl mx-auto mb-10">
+                        We've launched 100+ Shopify stores, and we noticed
+                        general-purpose themes force niche brands into generic
+                        layouts. So we started building our own — themes designed
+                        around how each niche actually sells.
+                    </Paragraph>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Theme list -->
+        <section class="relative py-20">
+            <Container className="max-w-6xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <Title>Our Themes</Title>
+                    <Paragraph>
+                        Each theme is built, maintained and customisable by our
+                        in-house team.
+                    </Paragraph>
+                </div>
+
+                <div class="box card-hover">
+                    <a href="/themes/glow" class="block">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <div class="w-full md:w-48 h-32 shrink-0 rounded-xl overflow-hidden border border-box-border">
+                                <img
+                                    src="/images/glow/glow.png"
+                                    alt="Glow Shopify theme — peptide skincare demo homepage"
+                                    width="779"
+                                    height="989"
+                                    loading="lazy"
+                                    class="w-full h-full object-cover object-top"
+                                />
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <h3 class="text-2xl font-bold text-heading-1">
+                                        Glow
+                                    </h3>
+                                    <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-xs font-semibold">
+                                        Beauty & Skincare
+                                    </span>
+                                </div>
+                                <p class="text-heading-3 mb-4">
+                                    A Shopify Online Store 2.0 theme for beauty
+                                    and skincare brands. Four bespoke sections —
+                                    Glow Ingredients, Glow Results, Glow Routine
+                                    and Glow Featured Products — plus
+                                    before/after sliders, trust badges, wishlist,
+                                    sticky add-to-cart and 170+ editor settings.
+                                </p>
+                                <span class="text-primary font-semibold">
+                                    Explore Glow →
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Why our themes -->
+        <section class="relative py-20 bg-gradient-to-br from-rose-500/5 to-amber-500/5">
+            <Container className="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Why Buy From the Theme's Builders?</Title>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            Built by experts
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            25+ years of eCommerce experience and 100+ Shopify
+                            stores launched go into every theme.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            Customised for you
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            We wrote the code, so we can extend it — new
+                            sections, integrations and brand-specific design.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold text-heading-1 mb-2">
+                            Optimised for AI search
+                        </h3>
+                        <p class="text-sm text-heading-3">
+                            Every theme ships with the SEO and answer-engine
+                            foundations we're known for.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- FAQ -->
+        <section class="relative py-20">
+            <Container className="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <Title>Frequently Asked Questions</Title>
+                </div>
+                <div class="space-y-6">
+                    {faqs.map((faq) => (
+                        <div class="box">
+                            <h3 class="font-semibold text-heading-1 mb-2">
+                                {faq.question}
+                            </h3>
+                            <p class="text-heading-3">{faq.answer}</p>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+    </main>
+</Layout>
