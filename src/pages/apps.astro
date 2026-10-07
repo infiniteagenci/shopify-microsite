@@ -67,7 +67,11 @@ const seoDescription = "Shopify apps London: Vision-Tag (AI alt text), Answer Ra
                     {app.category}
                   </span>
                   <h2 class="text-3xl font-bold text-heading-1">
-                    {app.name}
+                    {app.url ? (
+                      <a href={app.url} class="hover:text-primary transition-colors">{app.name}</a>
+                    ) : (
+                      app.name
+                    )}
                   </h2>
                 </div>
               </div>
@@ -106,12 +110,12 @@ const seoDescription = "Shopify apps London: Vision-Tag (AI alt text), Answer Ra
               <!-- CTA Buttons -->
               <div class="flex flex-wrap gap-4">
                 <a
-                  href="https://forms.gle/f4VL7etjU2psfh8o9"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={app.ctaUrl ?? "https://forms.gle/f4VL7etjU2psfh8o9"}
+                  target={app.ctaUrl ? undefined : "_blank"}
+                  rel={app.ctaUrl ? undefined : "noopener noreferrer"}
                   class="btn-primary inline-flex justify-center items-center px-6 py-3 text-black"
                 >
-                  Request Demo
+                  {app.ctaLabel ?? "Request Demo"}
                 </a>
               </div>
             </div>

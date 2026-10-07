@@ -122,6 +122,30 @@ const shopifyApps = [
     slug: "coop-kit",
     category: "Marketplace",
   },
+  {
+    name: "xSquads",
+    tagline: "Manage Your Store by Chat, From Slack",
+    description:
+      "Give your store a dedicated AI agent that lives in Slack. Update inventory, check order status, create landing pages, run SEO and AEO audits, and draft customer support replies — just mention @xSquad and ask. Every store gets its own isolated, sandboxed agent.",
+    features: [
+      "Inventory & stock updates by chat",
+      "Order status & customer order lookup",
+      "Landing page creation & page management",
+      "Technical SEO audits",
+      "AEO audits for AI answer engines",
+      "Customer support email drafting with escalation",
+    ],
+    benefits:
+      "Stop clicking through the Shopify admin. Ask @xSquad in Slack and get real answers from your store's live data — with per-store isolation, encrypted credentials and a human always in the loop.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.056 15.725a5.974 5.974 0 00-1.99-1.128A5.972 5.972 0 016.75 9.75c0 4.556 4.03 8.25 9 8.25.36 0 .716-.018 1.067-.053a9.755 9.755 0 012.846-2.372A5.972 5.972 0 0021 12z" />
+    </svg>`,
+    slug: "xsquads",
+    category: "AI Agent",
+    url: "/apps/xsquads",
+    ctaUrl: "https://xsquads.ai/shopify",
+    ctaLabel: "Get Started with xSquads",
+  },
 ];
 
 // About stats

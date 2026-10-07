@@ -22,6 +22,7 @@ const contentConfig = {
   "/ai-seo": { priority: "0.9", changefreq: "weekly" },
   "/audit": { priority: "0.9", changefreq: "weekly" },
   "/apps": { priority: "0.9", changefreq: "weekly" },
+  "/apps/xsquads": { priority: "0.9", changefreq: "weekly" },
   "/themes": { priority: "0.9", changefreq: "weekly" },
   "/themes/glow": { priority: "0.9", changefreq: "weekly" },
   "/themes/glow/documentation": { priority: "0.7", changefreq: "monthly" },
